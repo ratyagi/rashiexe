@@ -1610,7 +1610,7 @@ textarea.form-input::-webkit-resizer {
     .contacts-list {
         grid-template-columns: 1fr 1fr;
         gap: 30px 15px;
-	max-height: 684px;
+	max-height: 900px;
     }
     /**
    * NAVBAR
