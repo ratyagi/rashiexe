@@ -1315,9 +1315,6 @@ textarea.form-input::-webkit-resizer {
  */
 
 @media (min-width: 450px) {
-    .sidebar.active {
-        height: auto;
-    }
     /**
    * client
    */
