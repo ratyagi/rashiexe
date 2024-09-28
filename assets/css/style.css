@@ -892,7 +892,7 @@ main {
 .skill .title-wrapper {
     display: flex;
     align-items: left;
-    gap: 5px;
+    gap: 10px;
     margin-bottom: 8px;
 }
 
