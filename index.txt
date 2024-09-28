@@ -1,0 +1,240 @@
+Personal Portfolio
+
+# sidebar
+
+alt = Rashi Tyagi
+Rashi Tyagi
+AI/ ML Engineer
+
+Show Contacts
+
+Email
+ratyagi23@outlook.com
+
+Phone
++1 (317) 415-3216
+
+Birthday
+Jan 23, 2001
+
+Location
+Indianapolis, Indiana, USA
+
+# navbar
+
+About
+Resume
+Portfolio
+Blog
+Contact
+
+# about
+
+About me
+
+As a passionate and driven individual with a strong interest in the machine learning and data science field, I am excited to take on new challenges and apply my skills and expertise in a dynamic and fast-paced environment. With a background in mathematics and computer science, I have developed a deep understanding of data analysis, statistical modeling, and machine learning algorithms. I have also gained experience in programming languages such as Python, R, and SQL, and have worked with popular machine learning frameworks like TensorFlow and PyTorch.
+
+In addition to my technical skills, I have also honed my leadership abilities through various roles in my academic and professional careers. I have led teams of developers on projects that required strong communication, collaboration, and problem-solving skills. I plan to earn a master's degree in near future. I am eager to bring my technical expertise and leadership skills to a challenging and rewarding role in the machine learning and data science field. If you are looking for a passionate and driven individual who can contribute to your team's success, please don't hesitate to reach out.
+
+## service
+
+What i'm doing
+
+alt = design icon
+Web design
+The most modern and high-quality design made at a professional level.
+
+alt = Web development icon
+Web development
+High-quality development of sites at the professional level.
+
+alt = mobile app icon
+Mobile apps
+Professional development of applications for iOS and Android.
+
+alt = camera icon
+Photography
+I make high-quality photos of any category at a professional level.
+
+
+## testimonials
+
+Testimonials
+
+alt = Evan Oyler
+Evan Oyler
+During her time as project manager for The Pitch, Rashi coordinated the planning and execution of a competition-winning proposal. When running multiple meetings per week, Rashi gathered information from the team, updated the team on requirement changes, and ensured the timely completion of deliverables. Rashi's attention to detail, interpersonal skills, and natural ability to lead make her a prime candidate for any role she applies for.
+
+alt = Andy Stetter
+Andy Stetter
+I have been very pleased with the work Rashi has accomplished during her internship. She obtained a lot of knowledge with the Financial Services industry with a focus on the practice of IT FinOps practices in a cloud environment. She has been a pleasure to work with.
+
+alt = Lingma Lu
+Lingma Lu
+Rashi not only demonstrated excellent academic skills, but also stood out among her peers as a student who is hardworking, curious and respectful.Rashi did a terrific job in all the areas of the course and what's more, gave a lot of constructive suggestions to fellow classmates.
+
+alt = Diamond N. McDonald
+Diamond N. McDonald
+Rashi is an invaluable addition to the team. Her work ethic, attention to detail, and positive attitude are all refreshing. There have been many times where Rashi has helped me see the bigger picture, even as her supervisor. She has integrity and exudes excellence. Rashi's humility is admirable, and I am excited for her future. I am happy to provide more information if needed.
+
+
+## clients
+
+Clients
+
+alt = client logo
+
+
+
+# resume
+
+Resume
+
+Education
+
+Purdue University, Indianapolis
+2020 — 2023
+Bachelor of Science in Computer Science with Honors
+Minor in Mathematics
+
+Birla Balika Vidyapeeth, Pilani
+2017 — 2019
+High school subjects: Physics, Chemistry, Mathematics and Computer Science (C++)
+
+High school of art and design
+2002 — 2004
+Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur magni dolores eos.
+
+Experience
+
+Creative director
+2015 — Present
+Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas molestias exceptur.
+
+Art director
+2013 — 2015
+Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.
+
+Web designer
+2010 — 2013
+Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.
+
+My skills
+
+Web design
+80%
+Graphic design
+70%
+Branding
+90%
+WordPress
+50%
+
+
+
+# portfolio
+
+Portfolio
+
+All
+Web design
+Applications
+Web development
+
+Select category
+All
+Web design
+Applications
+Web development
+
+alt = finance
+Finance
+Web development
+
+alt = orizon
+Orizon
+Web development
+
+alt = fundo
+Fundo
+Web design
+
+alt = brawlhalla
+Brawlhalla
+Applications
+
+alt = dsm.
+DSM.
+Web design
+
+alt = metaspark
+MetaSpark
+Web design
+
+alt = summary
+Summary
+Web development
+
+alt = task manager
+Task Manager
+Applications
+
+alt = arrival
+Arrival
+Web development
+
+
+
+# blog
+
+Blog
+
+alt = Design conferences in 2022
+Design
+Fab 23, 2022
+Design conferences in 2022
+Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+
+alt = Best fonts every designer
+Design
+Fab 23, 2022
+Best fonts every designer
+Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
+
+alt = Design digest #80
+Design
+Fab 23, 2022
+Design digest #80
+Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
+
+alt = UI interactions of the week
+Design
+Fab 23, 2022
+UI interactions of the week
+Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
+
+alt = The forgotten art of spacing
+Design
+Fab 23, 2022
+The Forgotten Art Of Spacing
+Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+alt = Design digest #79
+Design
+Fab 23, 2022
+Design Digest #79
+Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
+
+
+
+# contact
+
+Contact
+
+Contact Form
+
+Full name
+Email address
+Your Message
+
+Send Message
