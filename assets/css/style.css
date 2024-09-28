@@ -875,6 +875,7 @@ main {
     width: max-content;
     padding: 3px 12px;
     border-radius: 8px;
+    display: inline-block;
 }
 
 .skills-title {
@@ -890,7 +891,7 @@ main {
 }
 
 .skill .title-wrapper {
-    display: flex;
+    display: inline-block;
     align-items: left;
     gap: 10px;
     margin-bottom: 8px;
