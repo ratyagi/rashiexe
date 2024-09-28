@@ -888,7 +888,7 @@ main {
 
 .skills-item:not(:last-child) {
     margin-bottom: 15px;
-    Display: None;
+    Display: inline-block;
 }
 
 .skill .title-wrapper {
