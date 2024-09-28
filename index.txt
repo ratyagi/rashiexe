@@ -137,27 +137,27 @@ WordPress
 Portfolio
 
 All
-Web design
+Research Implementation
 Applications
 Web development
 
 Select category
 All
-Web design
+Research Implementation
 Applications
 Web development
 
 alt = finance
 Finance
-Web development
+Research Implementation
 
 alt = orizon
 Orizon
-Web development
+Research Implementation
 
 alt = fundo
 Fundo
-Web design
+Research Implementation
 
 alt = brawlhalla
 Brawlhalla
@@ -165,11 +165,11 @@ Applications
 
 alt = dsm.
 DSM.
-Web design
+Web development
 
 alt = metaspark
 MetaSpark
-Web design
+Web development
 
 alt = summary
 Summary
