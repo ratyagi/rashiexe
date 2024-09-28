@@ -867,6 +867,15 @@ main {
 /**
  * skills 
  */
+.skill-content .title {
+    color: var(--white-1);
+    background: var(--onyx);
+    font-size: var(--fs-8);
+    font-weight: var(--fw-300);
+    width: max-content;
+    padding: 3px 12px;
+    border-radius: 8px;
+}
 
 .skills-title {
     margin-bottom: 20px;
@@ -882,7 +891,7 @@ main {
 
 .skill .title-wrapper {
     display: flex;
-    align-items: center;
+    align-items: left;
     gap: 5px;
     margin-bottom: 8px;
 }
