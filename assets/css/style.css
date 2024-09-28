@@ -1389,7 +1389,7 @@ textarea.form-input::-webkit-resizer {
         margin-bottom: 30px;
     }
     .sidebar.active {
-        max-height: 584px;
+        max-height: 684px;
     }
     .sidebar-info {
         gap: 25px;
