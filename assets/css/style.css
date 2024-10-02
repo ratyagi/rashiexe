@@ -877,6 +877,12 @@ main {
     border-radius: 8px;
     display: inline-block;
 }
+.skills-item-text {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-3);
+    line-height: 1.6;
+}
 
 .skills-title {
     margin-bottom: 20px;
