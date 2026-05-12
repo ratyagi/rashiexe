@@ -1,39 +1,60 @@
-# vCard - Personal portfolio
+# Rashi Tyagi — Personal Portfolio
 
-![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/vcard-personal-portfolio)
-![GitHub stars](https://img.shields.io/github/stars/codewithsadee/vcard-personal-portfolio?style=social)
-![GitHub forks](https://img.shields.io/github/forks/codewithsadee/vcard-personal-portfolio?style=social)
-[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee_?style=social)](https://twitter.com/intent/follow?screen_name=codewithsadee_)
-[![YouTube Video Views](https://img.shields.io/youtube/views/SoxmIlgf2zM?style=social)](https://youtu.be/SoxmIlgf2zM)
+This repository contains the source code for my personal portfolio website.
 
-vCard is a fully responsive personal portfolio website, responsive for all devices, built using HTML, CSS, and JavaScript.
+## Overview
+The website is a responsive single-page portfolio built with:
+- HTML
+- CSS
+- JavaScript
 
-## Prerequisites
+It includes sections for:
+- About
+- Resume
+- Portfolio Projects
+- Blog Highlights
+- Contact
 
-Before you begin, ensure you have met the following requirements:
+## Run Locally
+Because this is a static site, you can run it directly in a browser.
 
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
+### Option 1: Open the file
+1. Clone or download this repository.
+2. Open `index.html` in your browser.
 
-## Installing vCard
+### Option 2: Use a local server (recommended)
+From the repository root, run one of the following:
 
-To install **vCard**, follow these steps:
-
-Linux and macOS:
-
+Using Python 3:
 ```bash
-sudo git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
+python -m http.server 8000
 ```
 
-Windows:
+Then open:
+- `http://localhost:8000`
 
-```bash
-git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
+## Project Structure
+```text
+.
+├── index.html
+├── assets
+│   ├── css
+│   │   └── style.css
+│   ├── js
+│   │   └── script.js
+│   └── images
+└── README.md
 ```
+
+## Updating Content
+To update website content:
+- Edit text and sections in `index.html`.
+- Update styles in `assets/css/style.css`.
+- Update interactions in `assets/js/script.js`.
+- Replace images in `assets/images/` as needed.
 
 ## Contact
-
-If you want to contact me you can reach me at [Gmail](rashind18@gmail.com).
+If you’d like to connect, please use the contact section on the website.
 
 ## License
-
-MIT
+This project is licensed under the MIT License. See `LICENSE` for details.

@@ -1,159 +1,154 @@
-'use strict';
+"use strict";
 
+const elementToggleFunc = (elem) => elem.classList.toggle("active");
 
+const initSidebarToggle = () => {
+  const sidebar = document.querySelector("[data-sidebar]");
+  const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
-// element toggle function
-const elementToggleFunc = function(elem) { elem.classList.toggle("active"); }
+  if (!sidebar || !sidebarBtn) return;
 
+  sidebarBtn.addEventListener("click", () => elementToggleFunc(sidebar));
+};
 
+const initTestimonialsModal = () => {
+  const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
+  const modalContainer = document.querySelector("[data-modal-container]");
+  const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
+  const overlay = document.querySelector("[data-overlay]");
+  const modalImg = document.querySelector("[data-modal-img]");
+  const modalTitle = document.querySelector("[data-modal-title]");
+  const modalText = document.querySelector("[data-modal-text]");
 
-// sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+  if (
+    !testimonialsItem.length ||
+    !modalContainer ||
+    !modalCloseBtn ||
+    !overlay ||
+    !modalImg ||
+    !modalTitle ||
+    !modalText
+  ) {
+    return;
+  }
 
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function() { elementToggleFunc(sidebar); });
-
-
-
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
-
-// modal toggle function
-const testimonialsModalFunc = function() {
+  const testimonialsModalFunc = () => {
     modalContainer.classList.toggle("active");
     overlay.classList.toggle("active");
-}
+  };
 
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
+  testimonialsItem.forEach((item) => {
+    item.addEventListener("click", function () {
+      const avatar = this.querySelector("[data-testimonials-avatar]");
+      const title = this.querySelector("[data-testimonials-title]");
+      const text = this.querySelector("[data-testimonials-text]");
 
-    testimonialsItem[i].addEventListener("click", function() {
+      if (!avatar || !title || !text) return;
 
-        modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-        modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-        modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-        modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+      modalImg.src = avatar.src;
+      modalImg.alt = avatar.alt;
+      modalTitle.innerHTML = title.innerHTML;
+      modalText.innerHTML = text.innerHTML;
 
-        testimonialsModalFunc();
-
+      testimonialsModalFunc();
     });
+  });
 
-}
+  modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+  overlay.addEventListener("click", testimonialsModalFunc);
+};
 
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
+const initPortfolioFilter = () => {
+  const select = document.querySelector("[data-select]");
+  const selectItems = document.querySelectorAll("[data-select-item]");
+  const selectValue = document.querySelector("[data-select-value]");
+  const filterBtn = document.querySelectorAll("[data-filter-btn]");
+  const filterItems = document.querySelectorAll("[data-filter-item]");
 
+  if (!select || !selectItems.length || !selectValue || !filterBtn.length || !filterItems.length) {
+    return;
+  }
 
-
-// custom select variables
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-select.addEventListener("click", function() { elementToggleFunc(this); });
-
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-    selectItems[i].addEventListener("click", function() {
-
-        let selectedValue = this.innerText.toLowerCase();
-        selectValue.innerText = this.innerText;
-        elementToggleFunc(select);
-        filterFunc(selectedValue);
-
+  const filterFunc = (selectedValue) => {
+    filterItems.forEach((item) => {
+      if (selectedValue === "all" || selectedValue === item.dataset.category) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
     });
-}
+  };
 
-// filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
+  select.addEventListener("click", function () {
+    elementToggleFunc(this);
+  });
 
-const filterFunc = function(selectedValue) {
+  selectItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      const selectedValue = this.innerText.toLowerCase();
+      selectValue.innerText = this.innerText;
+      elementToggleFunc(select);
+      filterFunc(selectedValue);
+    });
+  });
 
-    for (let i = 0; i < filterItems.length; i++) {
+  let lastClickedBtn = filterBtn[0];
 
-        if (selectedValue === "all") {
-            filterItems[i].classList.add("active");
-        } else if (selectedValue === filterItems[i].dataset.category) {
-            filterItems[i].classList.add("active");
+  filterBtn.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const selectedValue = this.innerText.toLowerCase();
+      selectValue.innerText = this.innerText;
+      filterFunc(selectedValue);
+
+      lastClickedBtn.classList.remove("active");
+      this.classList.add("active");
+      lastClickedBtn = this;
+    });
+  });
+};
+
+const initContactValidation = () => {
+  const form = document.querySelector("[data-form]");
+  const formInputs = document.querySelectorAll("[data-form-input]");
+  const formBtn = document.querySelector("[data-form-btn]");
+
+  if (!form || !formInputs.length || !formBtn) return;
+
+  formInputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      if (form.checkValidity()) {
+        formBtn.removeAttribute("disabled");
+      } else {
+        formBtn.setAttribute("disabled", "");
+      }
+    });
+  });
+};
+
+const initPageNavigation = () => {
+  const navigationLinks = document.querySelectorAll("[data-nav-link]");
+  const pages = document.querySelectorAll("[data-page]");
+
+  if (!navigationLinks.length || !pages.length) return;
+
+  navigationLinks.forEach((link, linkIndex) => {
+    link.addEventListener("click", function () {
+      pages.forEach((page, pageIndex) => {
+        if (this.innerHTML.toLowerCase() === page.dataset.page) {
+          page.classList.add("active");
+          navigationLinks[pageIndex].classList.add("active");
+          window.scrollTo(0, 0);
         } else {
-            filterItems[i].classList.remove("active");
+          page.classList.remove("active");
+          navigationLinks[pageIndex].classList.remove("active");
         }
-
-    }
-
-}
-
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
-
-for (let i = 0; i < filterBtn.length; i++) {
-
-    filterBtn[i].addEventListener("click", function() {
-
-        let selectedValue = this.innerText.toLowerCase();
-        selectValue.innerText = this.innerText;
-        filterFunc(selectedValue);
-
-        lastClickedBtn.classList.remove("active");
-        this.classList.add("active");
-        lastClickedBtn = this;
-
+      });
     });
+  });
+};
 
-}
-
-
-
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-    formInputs[i].addEventListener("input", function() {
-
-        // check form validation
-        if (form.checkValidity()) {
-            formBtn.removeAttribute("disabled");
-        } else {
-            formBtn.setAttribute("disabled", "");
-        }
-
-    });
-}
-
-
-
-// page navigation variables
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-    navigationLinks[i].addEventListener("click", function() {
-
-        for (let i = 0; i < pages.length; i++) {
-            if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-                pages[i].classList.add("active");
-                navigationLinks[i].classList.add("active");
-                window.scrollTo(0, 0);
-            } else {
-                pages[i].classList.remove("active");
-                navigationLinks[i].classList.remove("active");
-            }
-        }
-
-    });
-}
+initSidebarToggle();
+initTestimonialsModal();
+initPortfolioFilter();
+initContactValidation();
+initPageNavigation();
