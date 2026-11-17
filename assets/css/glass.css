@@ -604,15 +604,16 @@ main { margin-bottom: 120px; }
 .engagement-post-item .project-title { text-transform: none; }
 
 
-/* ---------- 10. Scenes: starry night (dark) and a beach from above (light) ---------- */
-.scene-stars, .scene-beach { position: fixed; inset: 0; z-index: -1; pointer-events: none; width: 100vw; height: 100vh; }
-.scene-beach { display: none; overflow: hidden; background: #dcc39a; }
-.beach-sand, .beach-sea { position: absolute; left: 0; top: -5%; width: 100%; height: 110%; object-fit: cover; }
-.beach-sea { animation: wash 10s ease-in-out infinite; will-change: transform; }
-@keyframes wash { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3.4%); } }
+/* ---------- 10. Scenes: a night sky (dark) and a beach from above (light) ---------- */
+.scene-stars, .scene-beach {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-size: cover; background-position: center;
+}
+.scene-stars { background-image: url("../images/backgrounds/stars.webp"); background-color: #07142a; }
+.scene-beach { display: none; background-image: url("../images/backgrounds/beach.webp"); background-color: #cfb48a; }
 
-/* Dark: stars over a deep night, the colour blobs become a faint nebula. */
-.liquid-bg i { opacity: .55; }
+/* Dark: the photo is the sky, so the colour glows step aside. */
+.liquid-bg { display: none; }
 
 /* Light: the beach replaces the colour blobs; glass gets a touch whiter so text stays crisp over the sea. */
 :root[data-theme="light"] .scene-beach { display: block; }
@@ -623,5 +624,4 @@ main { margin-bottom: 120px; }
   :root:not([data-theme="dark"]) .scene-stars, :root:not([data-theme="dark"]) .liquid-bg { display: none; }
   :root:not([data-theme="dark"]) { --glass-fill: rgba(255, 255, 255, 0.58); --glass-fill-inner: rgba(255, 255, 255, 0.5); }
 }
-@media (prefers-reduced-motion: reduce) { .beach-sea { animation: none; } }
 @media (prefers-reduced-transparency: reduce) { .scene-beach { display: none !important; } }
