@@ -11,9 +11,9 @@
     <link rel="shortcut icon" href="./assets/images/logome.ico" type="image/x-icon">
 
     <!--- custom css link  -->
-    <link rel="stylesheet" href="./assets/css/style.css?v=9">
+    <link rel="stylesheet" href="./assets/css/style.css?v=10">
     <!--- Liquid Glass theme, layered on top of style.css -->
-    <link rel="stylesheet" href="./assets/css/glass.css?v=9">
+    <link rel="stylesheet" href="./assets/css/glass.css?v=10">
     <!--- Apply the saved appearance before the page paints, so there is no flash -->
     <script>
         try { var m = localStorage.getItem('appearance'); if (m === 'light' || m === 'dark') document.documentElement.setAttribute('data-theme', m); } catch (e) {}
@@ -863,6 +863,10 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                             <button data-filter-btn>Data &amp; Visualization</button>
                         </li>
 
+                        <li class="filter-item">
+                            <button data-filter-btn>Hackathons</button>
+                        </li>
+
                     </ul>
 
                     <div class="filter-select-box">
@@ -895,13 +899,17 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                             <button data-select-item>Data &amp; Visualization</button>
                         </li>
 
+                        <li class="select-item">
+                            <button data-select-item>Hackathons</button>
+                        </li>
+
                         </ul>
 
                     </div>
 
                     <ul class="project-list">
 
-                        <li class="project-item  active" data-filter-item data-category="data &amp; visualization">
+                        <li class="project-item  active" data-filter-item data-category="data &amp; visualization|hackathons">
                             <a href="https://ratyagi.github.io/vantage-mars/">
 
                                 <figure class="project-img">
@@ -912,7 +920,7 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                                     <img src="./assets/images/projects/vantage-mars.svg" alt="Vantage: Mars EVA Visibility" loading="lazy">
                                 </figure>
 
-                                <p class="project-category">Data &amp; Visualization</p>
+                                <p class="project-category">Data &amp; Visualization · Hackathon</p>
 
                                 <h3 class="project-title">Vantage: Mars EVA Visibility</h3>
 
@@ -967,7 +975,7 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                             </a>
                         </li>
 
-                        <li class="project-item  active" data-filter-item data-category="ai agents">
+                        <li class="project-item  active" data-filter-item data-category="ai agents|hackathons">
                             <a href="https://github.com/ratyagi/rfp-intelligence-agent">
 
                                 <figure class="project-img">
@@ -978,7 +986,7 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                                     <img src="./assets/images/projects/rfp-agent.svg" alt="RFP Intelligence Agent" loading="lazy">
                                 </figure>
 
-                                <p class="project-category">AI Agents</p>
+                                <p class="project-category">AI Agents · Hackathon</p>
 
                                 <h3 class="project-title">RFP Intelligence Agent</h3>
 
@@ -1208,8 +1216,8 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
     </main>
 
     <!--- custom js link    -->
-    <script src="./assets/js/script.js?v=9"></script>
-    <script src="./assets/js/glass.js?v=9"></script>
+    <script src="./assets/js/script.js?v=10"></script>
+    <script src="./assets/js/glass.js?v=10"></script>
 
     <!--- ionicon link -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
