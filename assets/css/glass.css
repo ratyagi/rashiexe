@@ -420,3 +420,69 @@ article { padding: 22px; }
   :root[data-theme="light"] { --glass-fill: rgba(250, 250, 252, 0.97); --glass-fill-strong: rgba(250, 250, 252, 0.98); --glass-fill-inner: rgba(0, 0, 0, 0.04); }
   .liquid-bg i { display: none; }
 }
+
+
+/* ---------- 8. Alignment fixes ----------
+ * The glass rules above give every surface `position: relative`, which
+ * overrode the original sticky sidebar (and its `top: 60px` then pushed it
+ * 60px below the content panel). These rules restore and tighten the layout.
+ */
+
+/* Sidebar sits level with the content panel, and stays put on wide screens. */
+.sidebar { top: auto; }
+@media (min-width: 1250px) {
+  .sidebar { position: sticky; top: 60px; align-self: flex-start; padding: 28px 22px 22px; }
+  main { align-items: flex-start; }
+}
+
+/* Contacts: icon and text on one line, labels flush with each other. */
+.contact-item { align-items: center; }
+.contact-info :is(.contact-link, address) { line-height: 1.4; }
+.icon-box { flex: none; }
+
+/* "Show contacts" button (tablets and phones): readable text, tucked inside the card. */
+.info_more-btn { top: 12px; right: 12px; color: var(--text-1); font-weight: 500; }
+.info_more-btn span { white-space: nowrap; }
+
+/* Services: same height per row, icon aligned with the title's first line. */
+.service-list { align-items: stretch; }
+.service-item { height: 100%; }
+@media (min-width: 580px) { .service-icon-box { margin-top: 2px; } }
+
+/* Testimonials: every card the same height. */
+.testimonials-list { align-items: stretch; }
+.testimonials-item { display: flex; }
+.testimonials-item .content-card { width: 100%; }
+
+/* Featured: images fill their tile exactly, all the same shape. */
+.clients-item { flex: 0 0 auto; width: 200px; min-width: 0; }
+.clients-item a { display: block; }
+.clients-item img { width: 100% !important; height: auto !important; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+@media (max-width: 579px) { .clients-item { width: 62%; } }
+
+/* Portfolio: every image the same shape, title and category flush with the image edge. */
+.project-list { align-items: start; }
+.project-img { height: auto; aspect-ratio: 4 / 3; margin-bottom: 12px; }
+.project-img img { width: 100%; height: 100%; object-fit: cover; }
+.project-title, .project-category { margin-left: 4px; margin-right: 4px; }
+
+/* Blog: cards in a row share a height, text starts at the same line. */
+.engagement-posts-list { align-items: stretch; }
+.engagement-post-item > a { display: flex; flex-direction: column; }
+.engagement-banner-box { flex: none; }
+
+/* Contact: button aligned with the right edge of the fields. */
+.contact-form .form-btn { margin-left: auto; }
+
+/* Resume: section icon centred against its heading. */
+.timeline .title-wrapper, .skill .title-wrapper { align-items: center; }
+
+/* Featured: a tidy grid on larger screens instead of a strip cut off at the edge. */
+@media (min-width: 768px) {
+  .clients-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin: 0; padding: 0 0 8px; overflow: visible; }
+  .clients-item { width: auto; }
+}
+
+/* Featured heading gets the same space as the other headings, and the phone strip lines up with the content. */
+.clients-title { margin-bottom: 20px; }
+@media (max-width: 767px) { .clients-list { padding: 4px 15px 20px; scroll-padding-inline: 15px; } }
