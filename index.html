@@ -11,9 +11,9 @@
     <link rel="shortcut icon" href="./assets/images/logome.ico" type="image/x-icon">
 
     <!--- custom css link  -->
-    <link rel="stylesheet" href="./assets/css/style.css?v=8">
+    <link rel="stylesheet" href="./assets/css/style.css?v=9">
     <!--- Liquid Glass theme, layered on top of style.css -->
-    <link rel="stylesheet" href="./assets/css/glass.css?v=8">
+    <link rel="stylesheet" href="./assets/css/glass.css?v=9">
     <!--- Apply the saved appearance before the page paints, so there is no flash -->
     <script>
         try { var m = localStorage.getItem('appearance'); if (m === 'light' || m === 'dark') document.documentElement.setAttribute('data-theme', m); } catch (e) {}
@@ -856,19 +856,11 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                         </li>
 
                         <li class="filter-item">
-                            <button data-filter-btn>Hackathons</button>
+                            <button data-filter-btn>ML Research</button>
                         </li>
 
                         <li class="filter-item">
-                            <button data-filter-btn>Research Implementation</button>
-                        </li>
-
-                        <li class="filter-item">
-                            <button data-filter-btn>Projects</button>
-                        </li>
-
-                        <li class="filter-item">
-                            <button data-filter-btn>Miscellaneous</button>
+                            <button data-filter-btn>Data &amp; Visualization</button>
                         </li>
 
                     </ul>
@@ -887,35 +879,71 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
 
                         <ul class="select-list">
 
-                            <li class="select-item">
-                                <button data-select-item>All</button>
-                            </li>
-
-                            <li class="select-item">
-                                <button data-select-item>AI Agents</button>
+                        <li class="select-item">
+                            <button data-select-item>All</button>
                         </li>
 
                         <li class="select-item">
-                            <button data-select-item>Hackathons</button>
+                            <button data-select-item>AI Agents</button>
                         </li>
 
                         <li class="select-item">
-                            <button data-select-item>Research Implementation</button>
-                            </li>
+                            <button data-select-item>ML Research</button>
+                        </li>
 
-                            <li class="select-item">
-                                <button data-select-item>Projects</button>
-                            </li>
-
-                            <li class="select-item">
-                                <button data-select-item>Miscellaneous</button>
-                            </li>
+                        <li class="select-item">
+                            <button data-select-item>Data &amp; Visualization</button>
+                        </li>
 
                         </ul>
 
                     </div>
 
                     <ul class="project-list">
+
+                        <li class="project-item  active" data-filter-item data-category="data &amp; visualization">
+                            <a href="https://ratyagi.github.io/vantage-mars/">
+
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="./assets/images/projects/vantage-mars.svg" alt="Vantage: Mars EVA Visibility" loading="lazy">
+                                </figure>
+
+                                <p class="project-category">Data &amp; Visualization</p>
+
+                                <h3 class="project-title">Vantage: Mars EVA Visibility</h3>
+
+                                <p class="project-desc">NASA Space Apps 2026. Predicts what a Mars astronaut can and cannot see along a walking route from 1 m terrain data.</p>
+
+                                <ul class="project-tags"><li>JavaScript</li><li>Python</li><li>MCP</li></ul>
+
+                            </a>
+                        </li>
+
+                        <li class="project-item  active" data-filter-item data-category="ml research">
+                            <a href="https://github.com/ratyagi/toucanet-playback-sensitivity">
+
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="./assets/images/projects/toucanet.svg" alt="Toucanet Playback Sensitivity" loading="lazy">
+                                </figure>
+
+                                <p class="project-category">ML Research</p>
+
+                                <h3 class="project-title">Toucanet Playback Sensitivity</h3>
+
+                                <p class="project-desc">Tests whether shifts in animal vocal activity are real responses to human presence or artefacts of the recording.</p>
+
+                                <ul class="project-tags"><li>Python</li><li>YAMNet</li><li>Mixed-effects models</li></ul>
+
+                            </a>
+                        </li>
 
                         <li class="project-item  active" data-filter-item data-category="ai agents">
                             <a href="https://github.com/ratyagi/ContextHarvester">
@@ -928,14 +956,18 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                                     <img src="./assets/images/projects/context-harvester.svg" alt="Context Harvester" loading="lazy">
                                 </figure>
 
+                                <p class="project-category">AI Agents</p>
+
                                 <h3 class="project-title">Context Harvester</h3>
 
-                                <p class="project-category">AI Agents</p>
+                                <p class="project-desc">Ranks the smallest set of files a coding agent needs for an issue. Recall@10 of 0.795 vs 0.699 for BM25 on SWE-bench Verified.</p>
+
+                                <ul class="project-tags"><li>Python</li><li>FAISS</li><li>BM25</li><li>Embeddings</li></ul>
 
                             </a>
                         </li>
 
-                        <li class="project-item  active" data-filter-item data-category="hackathons">
+                        <li class="project-item  active" data-filter-item data-category="ai agents">
                             <a href="https://github.com/ratyagi/rfp-intelligence-agent">
 
                                 <figure class="project-img">
@@ -946,86 +978,18 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                                     <img src="./assets/images/projects/rfp-agent.svg" alt="RFP Intelligence Agent" loading="lazy">
                                 </figure>
 
+                                <p class="project-category">AI Agents</p>
+
                                 <h3 class="project-title">RFP Intelligence Agent</h3>
 
-                                <p class="project-category">Hackathons</p>
+                                <p class="project-desc">Microsoft Agents League. Turns an RFP PDF into a proposal draft where every citation is checked: 51 of 51 verified.</p>
+
+                                <ul class="project-tags"><li>Azure AI Foundry</li><li>AI Search</li><li>Python</li></ul>
 
                             </a>
                         </li>
 
-                        <li class="project-item  active" data-filter-item data-category="hackathons">
-                            <a href="https://ratyagi.github.io/vantage-mars/">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/projects/vantage-mars.svg" alt="Vantage: Mars EVA Visibility" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Vantage: Mars EVA Visibility</h3>
-
-                                <p class="project-category">Hackathons</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="research implementation">
-                            <a href="https://github.com/ratyagi/toucanet-playback-sensitivity">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/projects/toucanet.svg" alt="Toucanet Playback Sensitivity" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Toucanet Playback Sensitivity</h3>
-
-                                <p class="project-category">Research Implementation</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="hackathons">
-                            <a href="https://github.com/ratyagi/Two-Lane-Reasoning-RL">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/projects/two-lane.svg" alt="Two-Lane Reasoning RL" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Two-Lane Reasoning RL</h3>
-
-                                <p class="project-category">Hackathons</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="projects">
-                            <a href="https://github.com/ratyagi/RL-Portfolio-Optimization">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/ongoing.png" alt="RL Portfolio Optimization" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">RL Portfolio Optimization</h3>
-
-                                <p class="project-category">Projects</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="projects">
+                        <li class="project-item  active" data-filter-item data-category="ai agents">
                             <a href="https://github.com/ratyagi/GPT-personal-assistant">
 
                                 <figure class="project-img">
@@ -1033,17 +997,21 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                                         <ion-icon name="eye-outline"></ion-icon>
                                     </div>
 
-                                    <img src="./assets/images/login_auth.png" alt="GPT Personal Financial Assistant" loading="lazy">
+                                    <img src="./assets/images/projects/gpt-assistant.svg" alt="GPT Personal Financial Assistant" loading="lazy">
                                 </figure>
+
+                                <p class="project-category">AI Agents</p>
 
                                 <h3 class="project-title">GPT Personal Financial Assistant</h3>
 
-                                <p class="project-category">Projects</p>
+                                <p class="project-desc">Upload expenses to see spending by category and get AI-generated saving tips and goal-based advice.</p>
+
+                                <ul class="project-tags"><li>Streamlit</li><li>FastAPI</li><li>GPT</li><li>Plotly</li></ul>
 
                             </a>
                         </li>
 
-                        <li class="project-item  active" data-filter-item data-category="research implementation">
+                        <li class="project-item  active" data-filter-item data-category="ml research">
                             <a href="https://github.com/ratyagi/GPT-Architecture-Implementation">
 
                                 <figure class="project-img">
@@ -1051,53 +1019,21 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                                         <ion-icon name="eye-outline"></ion-icon>
                                     </div>
 
-                                    <img src="./assets/images/project-1.jpg" alt="GPT Architecture Implementation" loading="lazy">
+                                    <img src="./assets/images/projects/gpt-architecture.svg" alt="GPT Architecture Implementation" loading="lazy">
                                 </figure>
+
+                                <p class="project-category">ML Research</p>
 
                                 <h3 class="project-title">GPT Architecture Implementation</h3>
 
-                                <p class="project-category">Research Implementation</p>
+                                <p class="project-desc">The GPT architecture implemented from scratch in PyTorch, as a step-by-step tutorial.</p>
+
+                                <ul class="project-tags"><li>PyTorch</li><li>Transformers</li></ul>
 
                             </a>
                         </li>
 
-                        <li class="project-item  active" data-filter-item data-category="projects">
-                            <a href="https://github.com/ratyagi/Twitter-Sentiment-Analysis/blob/main/twitter-sentiment-analysis.ipynb">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-2.jpg" alt="Twitter Sentiment Analysis" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Twitter Sentiment Analysis</h3>
-
-                                <p class="project-category">Projects</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="projects">
-                            <a href="https://github.com/ratyagi/KaggleX-Used-Car-Prediction-Model/blob/main/KaggleX_Skill_Assessment_Challenge.ipynb">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-3.png" alt="Machine Learning for Used Car Price Prediction" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Machine Learning for Used Car Price Prediction</h3>
-
-                                <p class="project-category">Projects</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="projects">
+                        <li class="project-item  active" data-filter-item data-category="data &amp; visualization">
                             <a href="https://github.com/ratyagi/Xtern2023-WSA/blob/main/Xtern2022%20WSA%20DS.ipynb">
 
                                 <figure class="project-img">
@@ -1105,30 +1041,16 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                                         <ion-icon name="eye-outline"></ion-icon>
                                     </div>
 
-                                    <img src="./assets/images/project-4.jpg" alt="Essence of Indianapolis" loading="lazy">
+                                    <img src="./assets/images/projects/essence-indy.svg" alt="Essence of Indianapolis" loading="lazy">
                                 </figure>
+
+                                <p class="project-category">Data &amp; Visualization</p>
 
                                 <h3 class="project-title">Essence of Indianapolis</h3>
 
-                                <p class="project-category">Projects</p>
+                                <p class="project-desc">Xtern data science assessment built on datasets gathered from the Google Maps API.</p>
 
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="miscellaneous">
-                            <a href="https://github.com/ratyagi/LeetCode">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-5.png" alt="LeetCode Practice" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">LeetCode Practice</h3>
-
-                                <p class="project-category">Miscellaneous</p>
+                                <ul class="project-tags"><li>Python</li><li>Jupyter</li><li>Google Maps API</li></ul>
 
                             </a>
                         </li>
@@ -1286,8 +1208,8 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
     </main>
 
     <!--- custom js link    -->
-    <script src="./assets/js/script.js?v=8"></script>
-    <script src="./assets/js/glass.js?v=8"></script>
+    <script src="./assets/js/script.js?v=9"></script>
+    <script src="./assets/js/glass.js?v=9"></script>
 
     <!--- ionicon link -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
