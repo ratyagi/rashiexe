@@ -565,3 +565,18 @@ main { margin-bottom: 120px; }
   padding: 3px 10px; border-radius: 999px; font-size: 11.5px; color: var(--text-1);
   background: var(--glass-fill-inner); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
+
+/* Resume: roles past the first few are tucked behind "See more". */
+.timeline-item.is-collapsed { display: none; }
+/* The rail line normally runs down to the next role; stop it at the last visible one. */
+.timeline-item:has(+ .is-collapsed)::before { display: none; }
+.see-more-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin: 18px 0 0 45px; padding: 9px 18px; border-radius: 999px;
+  font-size: 14px; font-weight: 500; color: var(--text-1);
+  background: linear-gradient(135deg, var(--glass-shine), transparent 50%), var(--glass-fill-inner);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s var(--spring), background 0.3s ease;
+}
+.see-more-btn:hover { transform: translateY(-1px); background: linear-gradient(135deg, var(--glass-shine), transparent 50%), var(--glass-fill); }
+.see-more-btn ion-icon { font-size: 16px; }

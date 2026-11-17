@@ -171,7 +171,42 @@
   }
 
   // The lens (initLens) bent the text under the tab bar and made it hard to read, so it is off.
-  function start() { freeModal(); initNav(); }
+  /*
+   * Resume: show the first few roles and put the rest behind "See more".
+   * Change SHOW to show more or fewer roles before the button.
+   */
+  function initSeeMore() {
+    const SHOW = 4;
+    const heading = $$('.resume .timeline h3').find((h) => h.textContent.trim() === 'Experience');
+    if (!heading) return;
+    const list = $('.timeline-list', heading.closest('.timeline'));
+    const items = $$('.timeline-item', list);
+    if (items.length <= SHOW) return;
+    const hidden = items.slice(SHOW);
+    hidden.forEach((li) => li.classList.add('is-collapsed'));
+    list.id = list.id || 'experience-list';
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'see-more-btn';
+    btn.setAttribute('aria-controls', list.id);
+    const label = (open) => {
+      btn.setAttribute('aria-expanded', String(open));
+      btn.innerHTML = open
+        ? 'See less <ion-icon name="chevron-up-outline"></ion-icon>'
+        : `See ${hidden.length} more <ion-icon name="chevron-down-outline"></ion-icon>`;
+    };
+    label(false);
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      hidden.forEach((li) => li.classList.toggle('is-collapsed', !open));
+      label(open);
+      if (!open) heading.scrollIntoView({ block: 'start', behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+    });
+    list.insertAdjacentElement('afterend', btn);
+  }
+
+  function start() { freeModal(); initNav(); initSeeMore(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();
