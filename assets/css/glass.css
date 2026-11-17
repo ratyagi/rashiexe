@@ -1,0 +1,638 @@
+/*-----------------------------------*\
+  #glass.css
+  Liquid Glass theme, layered on top of style.css.
+
+  style.css still owns the layout. This file swaps the colour tokens,
+  turns every surface into translucent glass with a light-catching rim,
+  floats the tab bar, and adds the moving colour field behind it all.
+  Remove the <link> to glass.css in index.html to get the old look back.
+
+  1. Tokens (dark, light, system)    5. Navigation tab bar
+  2. Background colour field         6. Components
+  3. The glass material              7. Accessibility
+  4. Surfaces
+\*-----------------------------------*/
+
+
+/* ---------- 1. Tokens ---------- */
+:root {
+  color-scheme: dark;
+
+  /* Glass */
+  --glass-fill: rgba(255, 255, 255, 0.075);
+  --glass-fill-strong: rgba(28, 28, 36, 0.42);
+  --glass-fill-inner: rgba(255, 255, 255, 0.055);
+  --glass-edge: rgba(255, 255, 255, 0.14);
+  --glass-rim: rgba(255, 255, 255, 0.85);
+  --glass-shine: rgba(255, 255, 255, 0.16);
+  --glass-shadow: 0 18px 50px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.2);
+  --blur: 26px;
+
+  /* Text and accent */
+  --text-1: rgba(255, 255, 255, 0.96);
+  --text-2: rgba(235, 235, 245, 0.74);
+  --text-3: rgba(235, 235, 245, 0.52);
+  --accent: #0a84ff;
+  --accent-2: #64d2ff;
+  --accent-grad: linear-gradient(90deg, #64d2ff, #0a84ff 55%, #bf5af2);
+
+  /* Background field */
+  --field-base: #06070c;
+  --blob-1: rgba(10, 132, 255, 0.55);
+  --blob-2: rgba(191, 90, 242, 0.5);
+  --blob-3: rgba(255, 55, 95, 0.36);
+  --blob-4: rgba(100, 210, 255, 0.42);
+  --blob-5: rgba(255, 159, 10, 0.26);
+
+  /* Map the old tokens onto the new palette so every old rule follows along. */
+  --white-1: var(--text-1);
+  --white-2: var(--text-1);
+  --light-gray: var(--text-2);
+  --light-gray-70: var(--text-3);
+  --orange-yellow-crayola: var(--accent);
+  --vegas-gold: var(--accent-2);
+  --jet: var(--glass-edge);
+  --onyx: var(--glass-fill);
+  --eerie-black-1: transparent;
+  --eerie-black-2: transparent;
+  --smoky-black: var(--field-base);
+  --text-gradient-yellow: var(--accent-grad);
+  --bg-gradient-onyx: var(--glass-fill);
+  --bg-gradient-jet: transparent;
+  --border-gradient-onyx: var(--glass-fill);
+  --bg-gradient-yellow-1: var(--glass-fill);
+  --bg-gradient-yellow-2: transparent;
+
+  --ff-poppins: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --ease-liquid: cubic-bezier(0.32, 0.72, 0, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Light appearance: brighter, milkier glass with dark text. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --glass-fill: rgba(255, 255, 255, 0.42);
+  --glass-fill-strong: rgba(255, 255, 255, 0.55);
+  --glass-fill-inner: rgba(255, 255, 255, 0.4);
+  --glass-edge: rgba(255, 255, 255, 0.7);
+  --glass-rim: rgba(255, 255, 255, 1);
+  --glass-shine: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 18px 50px rgba(40, 50, 90, 0.16), 0 2px 8px rgba(40, 50, 90, 0.08);
+  --text-1: #1d1d1f;
+  --text-2: rgba(29, 29, 31, 0.74);
+  --text-3: rgba(29, 29, 31, 0.52);
+  --accent: #0071e3;
+  --accent-2: #0a7fd6;
+  --field-base: #eef1f8;
+  --blob-1: rgba(10, 132, 255, 0.38);
+  --blob-2: rgba(191, 90, 242, 0.32);
+  --blob-3: rgba(255, 55, 95, 0.22);
+  --blob-4: rgba(100, 210, 255, 0.4);
+  --blob-5: rgba(255, 159, 10, 0.22);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --glass-fill: rgba(255, 255, 255, 0.42);
+    --glass-fill-strong: rgba(255, 255, 255, 0.55);
+    --glass-fill-inner: rgba(255, 255, 255, 0.4);
+    --glass-edge: rgba(255, 255, 255, 0.7);
+    --glass-rim: rgba(255, 255, 255, 1);
+    --glass-shine: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 18px 50px rgba(40, 50, 90, 0.16), 0 2px 8px rgba(40, 50, 90, 0.08);
+    --text-1: #1d1d1f;
+    --text-2: rgba(29, 29, 31, 0.74);
+    --text-3: rgba(29, 29, 31, 0.52);
+    --accent: #0071e3;
+    --accent-2: #0a7fd6;
+    --field-base: #eef1f8;
+    --blob-1: rgba(10, 132, 255, 0.38);
+    --blob-2: rgba(191, 90, 242, 0.32);
+    --blob-3: rgba(255, 55, 95, 0.22);
+    --blob-4: rgba(100, 210, 255, 0.4);
+    --blob-5: rgba(255, 159, 10, 0.22);
+  }
+}
+
+html { -webkit-font-smoothing: antialiased; }
+body { background: var(--field-base); color: var(--text-1); transition: background-color 0.6s ease; }
+.h2, .h3, .h4, .h5 { letter-spacing: -0.015em; font-weight: 600; }
+::selection { background: var(--accent); color: #fff; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+
+/* ---------- 2. Background colour field ---------- */
+.liquid-bg {
+  position: fixed; inset: -10vmax; z-index: -1; pointer-events: none;
+  background: var(--field-base);
+  overflow: hidden;
+}
+.liquid-bg i {
+  position: absolute; width: 60vmax; height: 60vmax; border-radius: 50%;
+  animation: drift 32s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.liquid-bg i:nth-child(1) { left: 2%;  top: -6%;  background: radial-gradient(circle, var(--blob-1), transparent 65%); }
+.liquid-bg i:nth-child(2) { right: -8%; top: 10%; background: radial-gradient(circle, var(--blob-2), transparent 65%); animation-duration: 38s; animation-delay: -8s; }
+.liquid-bg i:nth-child(3) { left: 24%; bottom: -18%; background: radial-gradient(circle, var(--blob-3), transparent 65%); animation-duration: 44s; animation-delay: -16s; }
+.liquid-bg i:nth-child(4) { right: 18%; bottom: -4%; background: radial-gradient(circle, var(--blob-4), transparent 62%); animation-duration: 36s; animation-delay: -4s; }
+.liquid-bg i:nth-child(5) { left: -14%; top: 40%; background: radial-gradient(circle, var(--blob-5), transparent 62%); animation-duration: 50s; animation-delay: -22s; }
+@keyframes drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(6vmax, 4vmax) scale(1.12); }
+  100% { transform: translate(-5vmax, -3vmax) scale(0.94); }
+}
+
+
+/* ---------- 3. The glass material ---------- */
+/*
+ * Every glass surface gets:
+ *  - a translucent fill with a soft diagonal sheen,
+ *  - (top-level surfaces only) a backdrop blur that boosts colour,
+ *  - ::before  a light that follows the pointer (--gx, --gy set by glass.js),
+ *  - ::after   a 1px rim, brightest where the light hits it.
+ */
+.sidebar, article, .navbar, .testimonials-modal, .select-list, .filter-select,
+.content-card, .service-item, .engagement-post-item > a, .form-input, .form-btn,
+.icon-box, .info_more-btn, .modal-close-btn, .project-item-icon-box,
+.info-content .title, .skill-content .title, .mapbox, .project-img, .clients-item {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(135deg, var(--glass-shine), transparent 38%, transparent 70%, rgba(255, 255, 255, 0.04)),
+    var(--glass-fill);
+  border: 1px solid transparent;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.05),
+    var(--glass-shadow);
+}
+
+/* These are positioned by the original layout; keep them absolute. */
+.info_more-btn, .modal-close-btn, .project-item-icon-box { position: absolute; }
+
+/* Top-level surfaces blur and saturate what is behind them. */
+.sidebar, article, .navbar, .testimonials-modal, .select-list, .filter-select {
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(185%);
+  backdrop-filter: blur(var(--blur)) saturate(185%);
+}
+/* Glass inside glass is lighter and does not stack blurs. */
+.content-card, .service-item, .engagement-post-item > a, .form-input, .icon-box,
+.info-content .title, .skill-content .title, .clients-item {
+  background:
+    linear-gradient(135deg, var(--glass-shine), transparent 40%),
+    var(--glass-fill-inner);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+/* Pointer light */
+.sidebar::before, article::before, .navbar::before, .testimonials-modal::before,
+.content-card::before, .service-item::before, .engagement-post-item > a::before,
+.icon-box::before, .info_more-btn::before, .form-btn::before, .filter-select::before,
+.mapbox::before, .clients-item::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(420px circle at var(--gx, 30%) var(--gy, -20%), rgba(255, 255, 255, 0.14), transparent 55%);
+  opacity: var(--glow, 0.6);
+  transition: opacity 0.4s ease;
+}
+:is(.content-card, .service-item, .engagement-post-item > a, .form-btn, .clients-item):hover::before { --glow: 1; }
+
+/* Rim: a 1px ring masked out of a gradient, brightest toward the light. */
+.sidebar::after, article::after, .navbar::after, .testimonials-modal::after,
+.content-card::after, .service-item::after, .engagement-post-item > a::after,
+.icon-box::after, .info_more-btn::after, .form-btn::after, .filter-select::after,
+.select-list::after, .mapbox::after, .project-img::after, .clients-item::after {
+  content: "";
+  position: absolute; inset: -1px; z-index: 2; border-radius: inherit; pointer-events: none;
+  padding: 1px;
+  background:
+    radial-gradient(240px circle at var(--gx, 22%) var(--gy, -10%), var(--glass-rim), transparent 70%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.06) 30%, rgba(255, 255, 255, 0.04) 70%, rgba(255, 255, 255, 0.3));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+
+
+/* ---------- 4. Surfaces ---------- */
+main { margin-bottom: 130px; }
+
+.sidebar, article { border-radius: 30px; padding: 18px; }
+article { padding: 22px; }
+
+.separator { background: linear-gradient(90deg, transparent, var(--glass-edge), transparent); }
+
+/* Profile */
+.avatar-box {
+  border-radius: 26px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.04));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.info-content .name { font-weight: 600; letter-spacing: -0.02em; }
+.info-content .title { border-radius: 999px; padding: 4px 12px; color: var(--text-1); }
+
+.info_more-btn {
+  top: -10px; right: -10px;
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: var(--accent);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+}
+.info_more-btn:hover, .info_more-btn:focus { background: var(--glass-fill-strong); }
+
+.icon-box { border-radius: 10px; color: var(--accent); }
+.social-item .social-link { transition: color 0.25s ease, transform 0.4s var(--spring); }
+.social-item .social-link:hover { color: var(--text-1); transform: translateY(-2px) scale(1.08); }
+
+/* Section titles: a short gradient bar, like a highlight under the heading. */
+.article-title::after { height: 4px; width: 36px; border-radius: 4px; background: var(--accent-grad); box-shadow: 0 0 14px rgba(10, 132, 255, 0.5); }
+
+.content-card, .service-item { border-radius: 22px; }
+.service-item, .content-card, .engagement-post-item > a {
+  transition: transform 0.5s var(--ease-liquid), box-shadow 0.5s var(--ease-liquid);
+}
+.service-item:hover, .content-card:hover, .engagement-post-item > a:hover { transform: translateY(-3px); }
+
+/* The original icons are yellow line art; shift them to the blue accent. */
+.service-icon-box img, .modal-img-wrapper > img { filter: hue-rotate(170deg) saturate(1.3) brightness(1.05) drop-shadow(0 6px 14px rgba(10, 132, 255, 0.35)); }
+
+/* Testimonials */
+.testimonials-avatar-box {
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.06));
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal: a glass sheet over a blurred page */
+.overlay { background: rgba(0, 0, 0, 0.3); -webkit-backdrop-filter: blur(10px) saturate(140%); backdrop-filter: blur(10px) saturate(140%); }
+.overlay.active { opacity: 1; }
+.testimonials-modal { background: var(--glass-fill-strong); border-radius: 30px; padding: 24px; transform: scale(0.92); transition: transform 0.55s var(--spring), opacity 0.3s ease; }
+.modal-close-btn { border-radius: 999px; opacity: 1; color: var(--text-1); }
+.modal-avatar-box { border-radius: 20px; background: linear-gradient(145deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05)); }
+
+/* Featured logos sit on small glass tiles. */
+.clients-item { border-radius: 20px; padding: 8px; }
+.clients-item img { border-radius: 14px; filter: grayscale(0.6) saturate(0.8); transition: filter 0.4s ease, transform 0.5s var(--ease-liquid); }
+.clients-item:hover img { filter: none; transform: scale(1.03); }
+
+/* Resume timeline: a soft light rail */
+.timeline-item:not(:last-child)::before { background: linear-gradient(var(--glass-edge), transparent); width: 2px; }
+.timeline-item::after { background: var(--accent-grad); box-shadow: 0 0 0 4px var(--glass-fill), 0 0 12px rgba(10, 132, 255, 0.6); }
+.timeline-list span { color: var(--accent-2); }
+
+.skills-list { border-radius: 22px; }
+.skill-content { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-content .title { border-radius: 999px; padding: 5px 13px; font-size: 12px; color: var(--text-1); transition: transform 0.4s var(--spring); }
+.skill-content .title:hover { transform: translateY(-2px); }
+.skills-item-text { margin-bottom: 8px; font-weight: 500; }
+
+/* Portfolio */
+.filter-select { border-radius: 16px; color: var(--text-1); }
+.select-list { background: var(--glass-fill-strong); border-radius: 18px; border: 0; }
+.select-item button { background: transparent; border-radius: 12px; color: var(--text-1); }
+.select-item button:hover { background: var(--glass-fill); }
+
+.filter-list button {
+  padding: 7px 16px; border-radius: 999px;
+  color: var(--text-2);
+  background: var(--glass-fill-inner);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: color 0.25s ease, background 0.3s ease, transform 0.4s var(--spring);
+}
+.filter-list button:hover { color: var(--text-1); transform: translateY(-1px); }
+.filter-list button.active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), transparent 60%), var(--accent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 6px 18px rgba(10, 132, 255, 0.45);
+}
+
+.project-img { border-radius: 22px; padding: 0; }
+.project-img img { transition: transform 0.7s var(--ease-liquid); }
+.project-item > a:hover .project-img::before { background: rgba(0, 0, 0, 0.18); }
+.project-item-icon-box { border-radius: 999px; color: #fff; -webkit-backdrop-filter: blur(14px) saturate(180%); backdrop-filter: blur(14px) saturate(180%); }
+.project-title { font-weight: 500; }
+
+/* Blog */
+.engagement-post-item > a { border-radius: 24px; padding: 8px; }
+.engagement-banner-box { border-radius: 18px; }
+.engagement-post-item > a:hover .engagement-item-title { color: var(--accent); }
+
+/* Contact */
+.mapbox { border-radius: 24px; border: 0; padding: 6px; }
+.mapbox iframe { border-radius: 18px; }
+:root:not([data-theme="light"]) .mapbox iframe { filter: invert(0.9) hue-rotate(180deg) saturate(0.7) contrast(0.92); }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .mapbox iframe { filter: none; } }
+
+.form-input {
+  border-radius: 16px; border: 1px solid transparent;
+  color: var(--text-1);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+.form-input::placeholder { color: var(--text-3); }
+.form-input:focus { outline: none; background: var(--glass-fill); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 0 3px rgba(10, 132, 255, 0.35); }
+.form-input:focus:invalid { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 0 3px rgba(255, 69, 58, 0.4); }
+.form-btn {
+  border-radius: 999px; color: #fff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent 55%), var(--accent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 10px 28px rgba(10, 132, 255, 0.4);
+  transition: transform 0.45s var(--spring), box-shadow 0.3s ease, opacity 0.3s ease;
+}
+.form-btn:hover { transform: translateY(-2px) scale(1.02); background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), transparent 55%), var(--accent); }
+.form-btn:disabled { opacity: 0.55; transform: none; }
+.form-btn:disabled:hover { background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent 55%), var(--accent); }
+
+/* Scrollbars */
+.has-scrollbar::-webkit-scrollbar-track { background: var(--glass-fill-inner); }
+.has-scrollbar::-webkit-scrollbar-thumb { background: var(--accent); }
+
+
+/* ---------- 5. Navigation: a floating glass tab bar ---------- */
+.navbar {
+  position: fixed; left: 50%; right: auto; top: auto; bottom: 14px;
+  transform: translateX(-50%);
+  width: max-content; max-width: calc(100% - 24px);
+  padding: 6px;
+  border-radius: 999px;
+  border: 0;
+  background: linear-gradient(135deg, var(--glass-shine), transparent 45%), var(--glass-fill-strong);
+  z-index: 10;
+}
+.navbar-list { position: relative; gap: 2px; padding: 0; flex-wrap: nowrap; }
+.navbar-link {
+  position: relative; z-index: 1;
+  padding: 9px 8px; border-radius: 999px;
+  font-size: 12px; font-weight: 500; color: var(--text-2);
+  transition: color 0.3s ease;
+}
+.navbar-link:hover, .navbar-link:focus { color: var(--text-1); }
+.navbar-link.active { color: var(--text-1); }
+
+/* The droplet behind the active tab. glass.js moves and stretches it. */
+.nav-drop {
+  position: absolute; top: 0; left: 0; height: 100%; z-index: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.08) 55%), var(--glass-fill);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -1px 1px rgba(255, 255, 255, 0.1), 0 4px 14px rgba(0, 0, 0, 0.18);
+  transform: translateX(var(--x, 0)); width: var(--w, 0);
+  transition: transform 0.55s var(--spring), width 0.55s var(--spring);
+  pointer-events: none;
+}
+.nav-drop.is-stretching { transition: transform 0.22s var(--ease-liquid), width 0.22s var(--ease-liquid); }
+
+/* Chromium can bend what is behind the bar, like a lens (the SVG filter is built in glass.js). */
+.has-lens .navbar {
+  -webkit-backdrop-filter: url(#liquid-lens) blur(10px) saturate(190%);
+  backdrop-filter: url(#liquid-lens) blur(10px) saturate(190%);
+}
+
+@media (min-width: 400px) { .navbar-link { padding: 9px 10px; } }
+@media (min-width: 580px) { .navbar-link { font-size: 14px; padding: 11px 18px; } }
+@media (min-width: 1024px) {
+  .navbar { bottom: 22px; padding: 7px; }
+  .navbar-list { gap: 4px; }
+  .navbar-link { font-size: 15px; padding: 12px 22px; }
+}
+
+/* Appearance toggle: the last item in the tab bar */
+.theme-toggle {
+  position: relative; z-index: 1;
+  display: grid; place-items: center;
+  width: 34px; height: 34px; margin-left: 0; border-radius: 999px;
+  color: var(--text-2); font-size: 18px; text-align: center;
+  transition: color 0.3s ease, transform 0.45s var(--spring), background 0.3s ease;
+}
+.theme-toggle:hover { color: var(--text-1); background: var(--glass-fill-inner); transform: rotate(-15deg); }
+@media (min-width: 1024px) { .theme-toggle { width: 44px; height: 44px; font-size: 20px; } }
+.theme-toggle ion-icon { pointer-events: none; }
+
+
+/* ---------- 7. Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .liquid-bg i { animation: none; }
+  .nav-drop, .nav-drop.is-stretching { transition: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+/* People who ask for less transparency get solid, high-contrast surfaces. */
+@media (prefers-reduced-transparency: reduce) {
+  :root { --glass-fill: rgba(30, 30, 38, 0.96); --glass-fill-strong: rgba(30, 30, 38, 0.98); --glass-fill-inner: rgba(255, 255, 255, 0.06); }
+  :root[data-theme="light"] { --glass-fill: rgba(250, 250, 252, 0.97); --glass-fill-strong: rgba(250, 250, 252, 0.98); --glass-fill-inner: rgba(0, 0, 0, 0.04); }
+  .liquid-bg i { display: none; }
+}
+
+
+/* ---------- 8. Alignment fixes ----------
+ * The glass rules above give every surface `position: relative`, which
+ * overrode the original sticky sidebar (and its `top: 60px` then pushed it
+ * 60px below the content panel). These rules restore and tighten the layout.
+ */
+
+/* Sidebar sits level with the content panel, and stays put on wide screens. */
+.sidebar { top: auto; }
+@media (min-width: 1250px) {
+  .sidebar { position: sticky; top: 60px; align-self: flex-start; padding: 28px 22px 22px; }
+  main { align-items: flex-start; }
+}
+
+/* Contacts: icon and text on one line, labels flush with each other. */
+.contact-item { align-items: center; }
+.contact-info :is(.contact-link, address) { line-height: 1.4; }
+.icon-box { flex: none; }
+
+/* "Show contacts" button (tablets and phones): readable text, tucked inside the card. */
+.info_more-btn { top: 12px; right: 12px; color: var(--text-1); font-weight: 500; }
+.info_more-btn span { white-space: nowrap; }
+
+/* Services: same height per row, icon aligned with the title's first line. */
+.service-list { align-items: stretch; }
+.service-item { height: 100%; }
+@media (min-width: 580px) { .service-icon-box { margin-top: 2px; } }
+
+/* Testimonials: every card the same height. */
+.testimonials-list { align-items: stretch; }
+.testimonials-item { display: flex; }
+.testimonials-item .content-card { width: 100%; }
+
+/* Featured: images fill their tile exactly, all the same shape. */
+.clients-item { flex: 0 0 auto; width: 200px; min-width: 0; }
+.clients-item a { display: block; }
+.clients-item img { width: 100% !important; height: auto !important; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+@media (max-width: 579px) { .clients-item { width: 62%; } }
+
+/* Portfolio: every image the same shape, title and category flush with the image edge. */
+.project-list { align-items: start; }
+.project-img { height: auto; aspect-ratio: 4 / 3; margin-bottom: 12px; }
+.project-img img { width: 100%; height: 100%; object-fit: cover; }
+.project-title, .project-category { margin-left: 4px; margin-right: 4px; }
+
+/* Blog: cards in a row share a height, text starts at the same line. */
+.engagement-posts-list { align-items: stretch; }
+.engagement-post-item > a { display: flex; flex-direction: column; }
+.engagement-banner-box { flex: none; }
+
+/* Contact: button aligned with the right edge of the fields. */
+.contact-form .form-btn { margin-left: auto; }
+
+/* Resume: section icon centred against its heading. */
+.timeline .title-wrapper, .skill .title-wrapper { align-items: center; }
+
+/* Featured: a tidy grid on larger screens instead of a strip cut off at the edge. */
+@media (min-width: 768px) {
+  .clients-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin: 0; padding: 0 0 8px; overflow: visible; }
+  .clients-item { width: auto; }
+}
+
+/* Featured heading gets the same space as the other headings, and the phone strip lines up with the content. */
+.clients-title { margin-bottom: 20px; }
+@media (max-width: 767px) { .clients-list { padding: 4px 15px 20px; scroll-padding-inline: 15px; } }
+
+
+/* ---------- 9. No overlaps, nothing clipped ----------
+ * The original layout used negative margins and sideways-scrolling strips,
+ * and let testimonial avatars hang over the top of their cards. Under glass
+ * those read as overlaps and hard cut-off edges, so they become plain grids.
+ */
+
+/* Testimonials: a grid of complete cards. The avatar sits inside the card. */
+.testimonials-list {
+  display: grid; grid-template-columns: 1fr; gap: 16px;
+  margin: 0; padding: 0; overflow: visible; scroll-snap-type: none;
+}
+@media (min-width: 768px) { .testimonials-list { grid-template-columns: repeat(2, 1fr); } }
+.testimonials-item { min-width: 0 !important; display: block; }
+.testimonials-item .content-card {
+  display: grid; grid-template-columns: 56px 1fr; column-gap: 14px; row-gap: 12px; align-items: center;
+  height: 100%; padding: 20px;
+}
+.testimonials-avatar-box {
+  position: static; transform: none; grid-row: 1; grid-column: 1;
+  width: 56px; height: 56px; display: grid; place-items: center; overflow: hidden;
+}
+.testimonials-avatar-box img { width: 48px; height: 48px; }
+.testimonials-item-title { grid-row: 1; grid-column: 2; margin: 0; line-height: 1.3; }
+.testimonials-text { grid-row: 2; grid-column: 1 / -1; }
+
+/* Featured: a grid inside the panel at every width. */
+.clients-list {
+  display: grid !important; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  margin: 0 !important; padding: 0 0 4px !important; overflow: visible !important;
+}
+@media (min-width: 768px) { .clients-list { grid-template-columns: repeat(5, 1fr); gap: 14px; } }
+.clients-item { width: auto !important; min-width: 0 !important; padding: 6px; border-radius: 16px; }
+.clients-item img { border-radius: 11px; }
+
+/* Tab bar: clearly its own layer, never blending into what scrolls under it. */
+.navbar, .has-lens .navbar {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 50%), rgba(18, 18, 26, 0.82);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  backdrop-filter: blur(30px) saturate(180%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1), 0 14px 40px rgba(0, 0, 0, 0.55);
+}
+:root[data-theme="light"] .navbar {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), transparent 50%), rgba(250, 250, 253, 0.86);
+  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(0, 0, 0, 0.06), 0 14px 40px rgba(40, 50, 90, 0.22);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .navbar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), transparent 50%), rgba(250, 250, 253, 0.86);
+    box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(0, 0, 0, 0.06), 0 14px 40px rgba(40, 50, 90, 0.22);
+  }
+}
+.nav-drop { background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); }
+/* Leave room so the last content on every page scrolls clear of the bar. */
+main { margin-bottom: 120px; }
+
+/* Wide screens: centre the tab bar under the content panel, not the window. */
+@media (min-width: 1250px) { .navbar { left: calc(50% + min(150px, (100vw - 1200px) / 2 + 150px)); } }
+
+/* Portfolio filters wrap onto a second line instead of running off the panel. */
+.filter-list { flex-wrap: wrap; row-gap: 10px; }
+
+.timeline-link { display: inline; color: var(--accent-2); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Resume order is Experience, Skills, Education: give Skills room before Education. */
+.resume .skill { margin-bottom: 30px; }
+
+/* Project cards: category, title, one-line description and tech tags. */
+.project-item > a { display: flex; flex-direction: column; height: 100%; }
+.project-list { align-items: stretch; }
+.project-category { margin: 2px 4px 4px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-2); }
+.project-title { margin: 0 4px 6px; font-size: 16px; font-weight: 600; }
+.project-desc { margin: 0 4px 12px; color: var(--text-2); font-size: 13.5px; line-height: 1.55; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: auto 4px 4px; }
+.project-tags li {
+  padding: 3px 10px; border-radius: 999px; font-size: 11.5px; color: var(--text-1);
+  background: var(--glass-fill-inner); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Resume: roles past the first few are tucked behind "See more". */
+.timeline-item.is-collapsed { display: none; }
+/* The rail line normally runs down to the next role; stop it at the last visible one. */
+.timeline-item:has(+ .is-collapsed)::before { display: none; }
+.see-more-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin: 18px 0 0 45px; padding: 9px 18px; border-radius: 999px;
+  font-size: 14px; font-weight: 500; color: var(--text-1);
+  background: linear-gradient(135deg, var(--glass-shine), transparent 50%), var(--glass-fill-inner);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s var(--spring), background 0.3s ease;
+}
+.see-more-btn:hover { transform: translateY(-1px); background: linear-gradient(135deg, var(--glass-shine), transparent 50%), var(--glass-fill); }
+.see-more-btn ion-icon { font-size: 16px; }
+
+/* Blog: the same card as a project. Three per row on desktop, two on tablets, one on phones. */
+.engagement-posts-list { display: grid; grid-template-columns: 1fr; gap: 30px; align-items: stretch; }
+@media (min-width: 768px) { .engagement-posts-list { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .engagement-posts-list { grid-template-columns: repeat(3, 1fr); } }
+.engagement-post-item > a {
+  display: flex; flex-direction: column; height: 100%;
+  padding: 0; border-radius: 0; background: none; box-shadow: none; transform: none;
+}
+.engagement-post-item > a::before, .engagement-post-item > a::after { display: none; }
+.engagement-post-item > a:hover { transform: none; }
+.engagement-post-item .project-img img { transition: transform 0.7s var(--ease-liquid); }
+.engagement-post-item > a:hover .project-img img { transform: scale(1.05); }
+.engagement-post-item .project-category time { display: inline; }
+.post-cta {
+  display: inline-flex; align-items: center; gap: 6px; margin: auto 4px 4px;
+  font-size: 13px; font-weight: 500; color: var(--accent-2);
+  transition: gap 0.4s var(--spring);
+}
+.engagement-post-item > a:hover .post-cta { gap: 10px; }
+.engagement-post-item .project-category span, .engagement-post-item .project-category time { display: inline; }
+.engagement-post-item .project-title { text-transform: none; }
+
+
+/* ---------- 10. Scenes: a night sky (dark) and a beach from above (light) ---------- */
+.scene-stars, .scene-beach {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-size: cover; background-position: center;
+}
+.scene-stars { background-image: url("../images/backgrounds/waves-dark.webp"); background-color: #0b0d12; }
+.scene-beach { display: none; background-image: url("../images/backgrounds/waves-light.webp"); background-color: #7fbbe9; }
+
+/* Dark: the photo is the sky, so the colour glows step aside. */
+.liquid-bg { display: none; }
+
+/* Light: the blue waves replace the colour blobs; glass gets a touch whiter so text stays crisp over the blue. */
+:root[data-theme="light"] .scene-beach { display: block; }
+:root[data-theme="light"] .scene-stars, :root[data-theme="light"] .liquid-bg { display: none; }
+:root[data-theme="light"] { --glass-fill: rgba(255, 255, 255, 0.58); --glass-fill-inner: rgba(255, 255, 255, 0.5); }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .scene-beach { display: block; }
+  :root:not([data-theme="dark"]) .scene-stars, :root:not([data-theme="dark"]) .liquid-bg { display: none; }
+  :root:not([data-theme="dark"]) { --glass-fill: rgba(255, 255, 255, 0.58); --glass-fill-inner: rgba(255, 255, 255, 0.5); }
+}
+@media (prefers-reduced-transparency: reduce) { .scene-beach { display: none !important; } }
+
+/* ---------- 11. Scrollbar: a slim rounded pill on a dark track ---------- */
+html { scrollbar-width: thin; scrollbar-color: #3a3a3c #141414; }
+html::-webkit-scrollbar, body::-webkit-scrollbar { width: 14px; }
+html::-webkit-scrollbar-track, body::-webkit-scrollbar-track { background: #141414; }
+html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+  background: #3a3a3c; border-radius: 999px;
+  border: 3px solid #141414; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+html::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover { background: #4a4a4d; }
+html::-webkit-scrollbar-button, body::-webkit-scrollbar-button { display: none; height: 0; }

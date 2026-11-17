@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#30d158"/><stop offset="1" stop-color="#0a84ff"/></linearGradient>
+  <radialGradient id="s" cx=".25" cy=".15" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="480" fill="#0b0c14"/><rect width="640" height="480" fill="url(#g)" opacity=".85"/><rect width="640" height="480" fill="url(#s)"/>
+  <g transform="translate(-20 60)"><g fill="none" stroke="#fff" stroke-width="3" opacity=".9" stroke-linecap="round"><path d="M220 120h14M246 95v50M262 75v90M278 100v40M294 85v70M310 110v20M326 70v100M342 92v56M358 105v30M374 80v80M390 112v16M406 98v44M422 120h14"/></g></g>
+  <text x="48" y="380" font-family="-apple-system, Segoe UI, Inter, Arial, sans-serif" font-size="38" font-weight="700" fill="#fff">Toucanet Playback Sensitivity</text>
+  <text x="48" y="420" font-family="-apple-system, Segoe UI, Inter, Arial, sans-serif" font-size="22" fill="#fff" opacity=".85">Wildlife acoustics, KWF research</text>
+</svg>

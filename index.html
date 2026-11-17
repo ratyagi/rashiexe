@@ -11,12 +11,18 @@
     <link rel="shortcut icon" href="./assets/images/logome.ico" type="image/x-icon">
 
     <!--- custom css link  -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css?v=18">
+    <!--- Liquid Glass theme, layered on top of style.css -->
+    <link rel="stylesheet" href="./assets/css/glass.css?v=18">
+    <!--- Apply the saved appearance before the page paints, so there is no flash -->
+    <script>
+        try { var m = localStorage.getItem('appearance'); if (m === 'light' || m === 'dark') document.documentElement.setAttribute('data-theme', m); } catch (e) {}
+    </script>
 
     <!--- google font link  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -38,7 +44,7 @@
                 <div class="info-content">
                     <h1 class="name" title="Rashi Tyagi">Rashi Tyagi</h1>
 
-                    <p class="title">ML Engineer</p>
+                    <p class="title">Machine Learning Engineer</p>
                 </div>
 
                 <button class="info_more-btn" data-sidebar-btn>
@@ -110,7 +116,7 @@
                         <div class="contact-info">
                             <p class="contact-title">Location</p>
 
-                            <address>United States (open to relocate)</address>
+                            <address>Washington, D.C. (open to relocate)</address>
                         </div>
 
                     </li>
@@ -197,11 +203,11 @@
 
                 <section class="about-text">
                     <p>
-                        CS grad student at University of Illinois at Urbana Champaign (May '26), focused on building intelligent, scalable systems with AI/ML and cloud. Currently learning, experimenting, and preparing to bring real-world impact. Open to full-time roles where technology meets purpose—AI/ML, data engineering, or cloud architecture.
+                        Machine Learning Engineer and University of Illinois Urbana-Champaign Computer Science graduate (MCS, AI concentration, '26), focused on building intelligent, scalable systems with AI/ML and cloud. I currently validate and ship audio ML models for wildlife conservation at a STEM non-profit. Open to full-time roles where technology meets purpose: AI/ML, data engineering, or cloud architecture.
                     </p>
 
                     <p>
-                        📍 Let's connect if you’re hiring, mentoring, or heading to GHC25/SWE25!
+                        📍 Heading to AWS re:Invent in Las Vegas. Let's connect if you're hiring, mentoring, or going too!
 
                     </p>
                 </section>
@@ -474,70 +480,6 @@
                             <ion-icon name="book-outline"></ion-icon>
                         </div>
 
-                        <h3 class="h3">Education</h3>
-                    </div>
-
-                    <ol class="timeline-list">
-
-                        <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">University of Illinois- Urbana Champaign</h4>
-
-                            <p class="timeline-text">
-                                Masters in Computer Science (Artificial Intelligence Concentration)
-                            </p>
-                    
-                            <span>Relevant Courses:</span>
-                            <p class="timeline-text"> Deep Learning for Computer Vision, Artificial Intelligence, Text Information Systems, Topics in Large Language
-Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intelligence
-                            </p>
-                            <!--<span>2024 — 2025</span> -->
-
-
-                        </li>
-
-                        <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">Purdue University in Indianapolis</h4>
-
-                            <p class="timeline-text">
-                                Bachelor of Science in Computer Science with Honors
-                            </p>
-                            <p class="timeline-text">
-                                Minor in mathematics
-                            </p>
-                            <span>Relevant Courses:</span>
-                            <p class="timeline-text"> Data Science, Cloud Computing, Data Mining, Data Structures, Operating Systems
-                            </p>
-                            <!-- <span>2020 — 2023</span> -->
-
-
-                        </li>
-
-                        <!-- <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">Birla Balika Vidyapeeth, Pilani</h4>
-                            <p class="timeline-text">
-                                High School
-                            </p>
-                            <span>Relevant Courses:</span>
-                            <p class="timeline-text"> Physics, Chemistry, Mathematics, and Computer Science (C++)
-                            </p>
-                            <span>2017 — 2019</span>
-
-                        </li> -->
-
-                    </ol>
-
-                </section>
-
-                <section class="timeline">
-
-                    <div class="title-wrapper">
-                        <div class="icon-box">
-                            <ion-icon name="book-outline"></ion-icon>
-                        </div>
-
                         <h3 class="h3">Experience</h3>
                     </div>
 
@@ -545,22 +487,67 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
 
                         <li class="timeline-item">
 
-                            <h4 class="h4 timeline-item-title">Machine Learning Intern | STEM non-profit</h4>
+                            <h4 class="h4 timeline-item-title">Machine Learning Engineer | STEM non-profit (Team Jacamar)</h4>
 
-                            <span>June 2026 — Present</span>
+                            <span>Aug 2026 — Present</span>
 
                             <p class="timeline-text">
-                                • Developing experimental ML pipelines for non-linguistic acoustic affective modeling; working with spectrogram analysis, embedding evaluation, and transfer learning across human and wildlife vocalization datasets to support AI-driven conservation monitoring in real rainforest environments.
-                            </p>
-                            <!-- <p class="timeline-text">
-                                • Implemented and evaluated models (ARIMA, XGBoost, LSTM) to improve forecast accuracy on internal inventory datasets, leading to a reduction in MAE by ~2% in test simulations.
+                                • Validated a compressed BirdNET model (70% smaller, 493 species) against the original on 709 field recordings: 100% top-species match, confidence within 0.03.
                             </p>
                             <p class="timeline-text">
-                                • Documented key learnings and presented insights to the operations team, including a practical summary of which models performed better.
-                            </p> -->
+                                • Integrated and tested the model in a Digital Twin pipeline on a 6.9 h recording (1,777 events), passing 5 of 5 integration checks.
+                            </p>
+                            <p class="timeline-text">
+                                • Found 5 production risks, including a silent file-skip failure and a 0 to 134 shift in human-presence detections, and documented each with evidence for the team lead.
+                            </p>
+                            <p class="timeline-text">
+                                • Built a reproducible validation framework (pass criteria with sources, hashed test data, one-command run) that another engineer can rerun.
+                            </p>
 
                         </li>
-                        
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title">Machine Learning Engineer | STEM non-profit (Team GhostBat)</h4>
+
+                            <span>Jun 2026 — Present</span>
+
+                            <p class="timeline-text">
+                                • Developing a weak-supervision pipeline using a Random Forest model to pseudo-label 32,130 audio clips for deep learning training.
+                            </p>
+                            <p class="timeline-text">
+                                • Extracting 88 eGeMAPS audio features via OpenSMILE with Z-score standardization across two datasets to reduce bias.
+                            </p>
+                            <p class="timeline-text">
+                                • Applying transfer learning by freezing foundational layers and fine-tuning the classification head to adapt a distress detector to wildlife audio.
+                            </p>
+
+                        </li>
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title">Contributor | NASA International Space Apps Challenge</h4>
+
+                            <span>Nov 2026</span>
+
+                            <p class="timeline-text">
+                                • Built <a class="timeline-link" href="https://ratyagi.github.io/vantage-mars/">Vantage</a>, a Mars EVA visibility planner that predicts what an astronaut can and cannot see along a route, using USGS 1 m terrain data for Gale crater.
+                            </p>
+
+                        </li>
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title">ML Summer School | Cohere Labs</h4>
+
+                            <span>Jul 2026 — Aug 2026</span>
+
+                            <p class="timeline-text">
+                                • Participated in Cohere Labs Open Science Community's ML Summer School, covering ML mathematics, modern language modeling, agentic AI, edge AI, computer vision, world models and ML evaluation.
+                            </p>
+
+                        </li>
+
                         <li class="timeline-item">
 
                             <h4 class="h4 timeline-item-title">Data Science Intern | OFR Telecom Private Limited</h4>
@@ -751,7 +738,7 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                         <li class="skills-item">
                             <p class="skills-item-text"> Machine Learning Tools</p>
                             <div class="skill-content">
-                                <p class="title" >Scikit-learn</p> <p class="title" >TensorFlow</p> <p class="title" >PyTorch</p> <p class="title" >Keras</p> <p class="title" >XGBoost</p> <p class="title" >Hugging Face</p> <p class="title" >SpaCy</p>
+                                <p class="title" >Scikit-learn</p> <p class="title" >TensorFlow</p> <p class="title" >PyTorch</p> <p class="title" >Keras</p> <p class="title" >XGBoost</p> <p class="title" >Hugging Face</p> <p class="title" >SpaCy</p> <p class="title" >ONNX</p> <p class="title" >BirdNET</p> <p class="title" >OpenSMILE</p>
                             </div>
                         </li>
                         <li class="skills-item">
@@ -770,7 +757,7 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                         <li class="skills-item">
                             <p class="skills-item-text"> Other</p>
                             <div class="skill-content">
-                                <p class="title" >Git</p> <p class="title" >Unix Command Line</p> <p class="title" >Jupyter Notebooks</p> <p class="title" >LATEX</p>
+                                <p class="title" >Git</p> <p class="title" >FastAPI</p> <p class="title" >Unix Command Line</p> <p class="title" >Jupyter Notebooks</p> <p class="title" >LATEX</p>
                             </div>
 
                         </li>
@@ -778,6 +765,71 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                     </ul>
 
                 </section>
+
+                <section class="timeline">
+
+                    <div class="title-wrapper">
+                        <div class="icon-box">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </div>
+
+                        <h3 class="h3">Education</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title">University of Illinois- Urbana Champaign</h4>
+
+                            <p class="timeline-text">
+                                Masters in Computer Science (Artificial Intelligence Concentration)
+                            </p>
+                    
+                            <span>Relevant Courses:</span>
+                            <p class="timeline-text"> Deep Learning for Computer Vision, Artificial Intelligence, Text Information Systems, Topics in Large Language
+Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intelligence
+                            </p>
+                            <!--<span>2024 — 2025</span> -->
+
+
+                        </li>
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title">Purdue University in Indianapolis</h4>
+
+                            <p class="timeline-text">
+                                Bachelor of Science in Computer Science with Honors
+                            </p>
+                            <p class="timeline-text">
+                                Minor in mathematics
+                            </p>
+                            <span>Relevant Courses:</span>
+                            <p class="timeline-text"> Data Science, Cloud Computing, Data Mining, Data Structures, Operating Systems
+                            </p>
+                            <!-- <span>2020 — 2023</span> -->
+
+
+                        </li>
+
+                        <!-- <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title">Birla Balika Vidyapeeth, Pilani</h4>
+                            <p class="timeline-text">
+                                High School
+                            </p>
+                            <span>Relevant Courses:</span>
+                            <p class="timeline-text"> Physics, Chemistry, Mathematics, and Computer Science (C++)
+                            </p>
+                            <span>2017 — 2019</span>
+
+                        </li> -->
+
+                    </ol>
+
+                </section>
+
 
             </article>
 
@@ -800,15 +852,19 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                         </li>
 
                         <li class="filter-item">
-                            <button data-filter-btn>Research Implementation</button>
+                            <button data-filter-btn>AI Agents</button>
                         </li>
 
                         <li class="filter-item">
-                            <button data-filter-btn>Projects</button>
+                            <button data-filter-btn>ML Research</button>
                         </li>
 
                         <li class="filter-item">
-                            <button data-filter-btn>Miscellaneous</button>
+                            <button data-filter-btn>Data &amp; Visualization</button>
+                        </li>
+
+                        <li class="filter-item">
+                            <button data-filter-btn>Hackathons</button>
                         </li>
 
                     </ul>
@@ -827,21 +883,25 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
 
                         <ul class="select-list">
 
-                            <li class="select-item">
-                                <button data-select-item>All</button>
-                            </li>
+                        <li class="select-item">
+                            <button data-select-item>All</button>
+                        </li>
 
-                            <li class="select-item">
-                                <button data-select-item>Research Implementation</button>
-                            </li>
+                        <li class="select-item">
+                            <button data-select-item>AI Agents</button>
+                        </li>
 
-                            <li class="select-item">
-                                <button data-select-item>Projects</button>
-                            </li>
+                        <li class="select-item">
+                            <button data-select-item>ML Research</button>
+                        </li>
 
-                            <li class="select-item">
-                                <button data-select-item>Miscellaneous</button>
-                            </li>
+                        <li class="select-item">
+                            <button data-select-item>Data &amp; Visualization</button>
+                        </li>
+
+                        <li class="select-item">
+                            <button data-select-item>Hackathons</button>
+                        </li>
 
                         </ul>
 
@@ -849,25 +909,95 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
 
                     <ul class="project-list">
 
-                        <li class="project-item  active" data-filter-item data-category="projects">
-                            <a href="https://github.com/ratyagi/RL-Portfolio-Optimization">
+                        <li class="project-item  active" data-filter-item data-category="data &amp; visualization|hackathons">
+                            <a href="https://ratyagi.github.io/vantage-mars/">
 
                                 <figure class="project-img">
                                     <div class="project-item-icon-box">
                                         <ion-icon name="eye-outline"></ion-icon>
                                     </div>
 
-                                    <img src="./assets/images/ongoing.png" alt="RL Portfolio Optimization" loading="lazy">
+                                    <img src="./assets/images/projects/vantage-mars.svg" alt="Vantage: Mars EVA Visibility" loading="lazy">
                                 </figure>
 
-                                <h3 class="project-title">RL Portfolio Optimization</h3>
+                                <p class="project-category">Data &amp; Visualization · Hackathon</p>
 
-                                <p class="project-category">Projects</p>
+                                <h3 class="project-title">Vantage: Mars EVA Visibility</h3>
+
+                                <p class="project-desc">NASA Space Apps 2026. Predicts what a Mars astronaut can and cannot see along a walking route from 1 m terrain data.</p>
+
+                                <ul class="project-tags"><li>JavaScript</li><li>Python</li><li>MCP</li></ul>
 
                             </a>
                         </li>
 
-                        <li class="project-item  active" data-filter-item data-category="projects">
+                        <li class="project-item  active" data-filter-item data-category="ml research">
+                            <a href="https://github.com/ratyagi/toucanet-playback-sensitivity">
+
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="./assets/images/projects/toucanet.svg" alt="Toucanet Playback Sensitivity" loading="lazy">
+                                </figure>
+
+                                <p class="project-category">ML Research</p>
+
+                                <h3 class="project-title">Toucanet Playback Sensitivity</h3>
+
+                                <p class="project-desc">Tests whether shifts in animal vocal activity are real responses to human presence or artefacts of the recording.</p>
+
+                                <ul class="project-tags"><li>Python</li><li>YAMNet</li><li>Mixed-effects models</li></ul>
+
+                            </a>
+                        </li>
+
+                        <li class="project-item  active" data-filter-item data-category="ai agents">
+                            <a href="https://github.com/ratyagi/ContextHarvester">
+
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="./assets/images/projects/context-harvester.svg" alt="Context Harvester" loading="lazy">
+                                </figure>
+
+                                <p class="project-category">AI Agents</p>
+
+                                <h3 class="project-title">Context Harvester</h3>
+
+                                <p class="project-desc">Ranks the smallest set of files a coding agent needs for an issue. Recall@10 of 0.795 vs 0.699 for BM25 on SWE-bench Verified.</p>
+
+                                <ul class="project-tags"><li>Python</li><li>FAISS</li><li>BM25</li><li>Embeddings</li></ul>
+
+                            </a>
+                        </li>
+
+                        <li class="project-item  active" data-filter-item data-category="ai agents|hackathons">
+                            <a href="https://github.com/ratyagi/rfp-intelligence-agent">
+
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="./assets/images/projects/rfp-agent.svg" alt="RFP Intelligence Agent" loading="lazy">
+                                </figure>
+
+                                <p class="project-category">AI Agents · Hackathon</p>
+
+                                <h3 class="project-title">RFP Intelligence Agent</h3>
+
+                                <p class="project-desc">Microsoft Agents League. Turns an RFP PDF into a proposal draft where every citation is checked: 51 of 51 verified.</p>
+
+                                <ul class="project-tags"><li>Azure AI Foundry</li><li>AI Search</li><li>Python</li></ul>
+
+                            </a>
+                        </li>
+
+                        <li class="project-item  active" data-filter-item data-category="ai agents">
                             <a href="https://github.com/ratyagi/GPT-personal-assistant">
 
                                 <figure class="project-img">
@@ -875,17 +1005,21 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                                         <ion-icon name="eye-outline"></ion-icon>
                                     </div>
 
-                                    <img src="./assets/images/login_auth.png" alt="GPT Personal Financial Assistant" loading="lazy">
+                                    <img src="./assets/images/projects/gpt-assistant.svg" alt="GPT Personal Financial Assistant" loading="lazy">
                                 </figure>
+
+                                <p class="project-category">AI Agents</p>
 
                                 <h3 class="project-title">GPT Personal Financial Assistant</h3>
 
-                                <p class="project-category">Projects</p>
+                                <p class="project-desc">Upload expenses to see spending by category and get AI-generated saving tips and goal-based advice.</p>
+
+                                <ul class="project-tags"><li>Streamlit</li><li>FastAPI</li><li>GPT</li><li>Plotly</li></ul>
 
                             </a>
                         </li>
 
-                        <li class="project-item  active" data-filter-item data-category="research implementation">
+                        <li class="project-item  active" data-filter-item data-category="ml research">
                             <a href="https://github.com/ratyagi/GPT-Architecture-Implementation">
 
                                 <figure class="project-img">
@@ -893,53 +1027,21 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                                         <ion-icon name="eye-outline"></ion-icon>
                                     </div>
 
-                                    <img src="./assets/images/project-1.jpg" alt="GPT Architecture Implementation" loading="lazy">
+                                    <img src="./assets/images/projects/gpt-architecture.svg" alt="GPT Architecture Implementation" loading="lazy">
                                 </figure>
+
+                                <p class="project-category">ML Research</p>
 
                                 <h3 class="project-title">GPT Architecture Implementation</h3>
 
-                                <p class="project-category">Research Implementation</p>
+                                <p class="project-desc">The GPT architecture implemented from scratch in PyTorch, as a step-by-step tutorial.</p>
+
+                                <ul class="project-tags"><li>PyTorch</li><li>Transformers</li></ul>
 
                             </a>
                         </li>
 
-                        <li class="project-item  active" data-filter-item data-category="projects">
-                            <a href="https://github.com/ratyagi/Twitter-Sentiment-Analysis/blob/main/twitter-sentiment-analysis.ipynb">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-2.jpg" alt="Twitter Sentiment Analysis" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Twitter Sentiment Analysis</h3>
-
-                                <p class="project-category">Projects</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="projects">
-                            <a href="https://github.com/ratyagi/KaggleX-Used-Car-Prediction-Model/blob/main/KaggleX_Skill_Assessment_Challenge.ipynb">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-3.png" alt="Machine Learning for Used Car Price Prediction" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Machine Learning for Used Car Price Prediction</h3>
-
-                                <p class="project-category">Projects</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="projects">
+                        <li class="project-item  active" data-filter-item data-category="data &amp; visualization">
                             <a href="https://github.com/ratyagi/Xtern2023-WSA/blob/main/Xtern2022%20WSA%20DS.ipynb">
 
                                 <figure class="project-img">
@@ -947,30 +1049,16 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                                         <ion-icon name="eye-outline"></ion-icon>
                                     </div>
 
-                                    <img src="./assets/images/project-4.jpg" alt="Essence of Indianapolis" loading="lazy">
+                                    <img src="./assets/images/projects/essence-indy.svg" alt="Essence of Indianapolis" loading="lazy">
                                 </figure>
+
+                                <p class="project-category">Data &amp; Visualization</p>
 
                                 <h3 class="project-title">Essence of Indianapolis</h3>
 
-                                <p class="project-category">Projects</p>
+                                <p class="project-desc">Xtern data science assessment built on datasets gathered from the Google Maps API.</p>
 
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="miscellaneous">
-                            <a href="https://github.com/ratyagi/LeetCode">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-5.png" alt="LeetCode Practice" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">LeetCode Practice</h3>
-
-                                <p class="project-category">Miscellaneous</p>
+                                <ul class="project-tags"><li>Python</li><li>Jupyter</li><li>Google Maps API</li></ul>
 
                             </a>
                         </li>
@@ -995,87 +1083,59 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                     <ul class="engagement-posts-list">
 
                         <li class="engagement-post-item">
-                            <a href="https://substack.com/home/post/p-197255268">
+                            <a href="https://www.linkedin.com/posts/tyrashi_womeninai-womendefiningai-machinelearning-activity-7467026268161716224-_KV2?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAC2ydysB4H1MX1yJDlJ3Ht6XbbVeQm2jC5o">
 
-                                <figure class="engagement-banner-box">
-                                    <img src="./assets/images/blog1.png" alt="context, memory, harness" loading="lazy">
+                                <figure class="project-img">
+                                    <img src="./assets/images/writing/community-first.svg" alt="Community first. Always." loading="lazy">
                                 </figure>
 
-                                <div class="engagement-content">
+                                <p class="project-category">LinkedIn <span aria-hidden="true">·</span> <time datetime="2026-05-31">May 31, 2026</time></p>
 
-                                    <div class="engagement-meta">
-                                        <p class="engagement-category">AI Agents</p>
+                                <h3 class="project-title">Community first. Always.</h3>
 
-                                        <span class="dot"></span>
+                                <p class="project-desc">Attended a Claude Code workshop hosted by Women Defining AI and 1871 Chicago.</p>
 
-                                        <time datetime="2026-05-12">May 12, 2026</time>
-                                    </div>
-
-                                    <h3 class="h3 engagement-item-title">Contex, Memory & Harness Engineering</h3>
-
-                                    <p class="engagement-text">
-                                        An introduction to the three disciplines quietly reshaping AI Engineering.
-                                    </p>
-
-                                </div>
+                                <span class="post-cta">Read on LinkedIn <ion-icon name="arrow-forward-outline"></ion-icon></span>
 
                             </a>
                         </li>
+
                         <li class="engagement-post-item">
                             <a href="https://iterativebuild.substack.com/p/cdac3bc3-1240-4c7f-ba47-f2af0cf46736">
 
-                                <figure class="engagement-banner-box">
-                                    <img src="./assets/images/blog2.png" alt="Getting ready for Agentic web" loading="lazy">
+                                <figure class="project-img">
+                                    <img src="./assets/images/writing/humans-to-agents.svg" alt="From Humans to Agents" loading="lazy">
                                 </figure>
 
-                                <div class="engagement-content">
+                                <p class="project-category">AI Agents <span aria-hidden="true">·</span> <time datetime="2026-05-14">May 14, 2026</time></p>
 
-                                    <div class="engagement-meta">
-                                        <p class="engagement-category">AI Agents</p>
+                                <h3 class="project-title">From Humans to Agents</h3>
 
-                                        <span class="dot"></span>
+                                <p class="project-desc">How AI agents are changing the web, and what developers need to do now to adapt.</p>
 
-                                        <time datetime="2026-05-14">May 14, 2026</time>
-                                    </div>
-
-                                    <h3 class="h3 engagement-item-title">From Humans to Agents</h3>
-
-                                    <p class="engagement-text">
-                                        Learn how AI agents are changing the web—and what developers need to do now to adapt.
-                                    </p>
-
-                                </div>
+                                <span class="post-cta">Read on Substack <ion-icon name="arrow-forward-outline"></ion-icon></span>
 
                             </a>
                         </li>
+
                         <li class="engagement-post-item">
-                            <a href="https://www.linkedin.com/posts/tyrashi_womeninai-womendefiningai-machinelearning-activity-7467026268161716224-_KV2?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC2ydysB4H1MX1yJDlJ3Ht6XbbVeQm2jC5o">
+                            <a href="https://substack.com/home/post/p-197255268">
 
-                                <figure class="engagement-banner-box">
-                                    <img src="./assets/images/blog3.JPEG" alt="Event Image" loading="lazy">
+                                <figure class="project-img">
+                                    <img src="./assets/images/writing/context-memory-harness.svg" alt="Context, Memory &amp; Harness Engineering" loading="lazy">
                                 </figure>
 
-                                <div class="engagement-content">
+                                <p class="project-category">AI Agents <span aria-hidden="true">·</span> <time datetime="2026-05-12">May 12, 2026</time></p>
 
-                                    <div class="engagement-meta">
-                                        <p class="engagement-category">LinkedIn</p>
+                                <h3 class="project-title">Context, Memory &amp; Harness Engineering</h3>
 
-                                        <span class="dot"></span>
+                                <p class="project-desc">An introduction to the three disciplines quietly reshaping AI engineering.</p>
 
-                                        <time datetime="2026-05-14">May 31, 2026</time>
-                                    </div>
-
-                                    <h3 class="h3 engagement-item-title">Community first. Always.</h3>
-
-                                    <p class="engagement-text">
-                                        Attended a Claude Code workshop hosted by Women Defining AI and 1871 Chicago.
-                                    </p>
-
-                                </div>
+                                <span class="post-cta">Read on Substack <ion-icon name="arrow-forward-outline"></ion-icon></span>
 
                             </a>
                         </li>
-                        
+
                     </ul>
 
                 </section>
@@ -1128,7 +1188,8 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
     </main>
 
     <!--- custom js link    -->
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js?v=18"></script>
+    <script src="./assets/js/glass.js?v=18"></script>
 
     <!--- ionicon link -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

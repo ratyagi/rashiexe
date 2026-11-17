@@ -84,7 +84,7 @@ const filterFunc = function(selectedValue) {
 
         if (selectedValue === "all") {
             filterItems[i].classList.add("active");
-        } else if (selectedValue === filterItems[i].dataset.category) {
+        } else if (filterItems[i].dataset.category.split('|').includes(selectedValue)) {  // a project can be in several categories, separated by |
             filterItems[i].classList.add("active");
         } else {
             filterItems[i].classList.remove("active");
