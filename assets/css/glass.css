@@ -548,3 +548,8 @@ main { margin-bottom: 120px; }
 
 /* Portfolio filters wrap onto a second line instead of running off the panel. */
 .filter-list { flex-wrap: wrap; row-gap: 10px; }
+
+.timeline-link { display: inline; color: var(--accent-2); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Resume order is Experience, Skills, Education: give Skills room before Education. */
+.resume .skill { margin-bottom: 30px; }

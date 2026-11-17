@@ -11,9 +11,9 @@
     <link rel="shortcut icon" href="./assets/images/logome.ico" type="image/x-icon">
 
     <!--- custom css link  -->
-    <link rel="stylesheet" href="./assets/css/style.css?v=6">
+    <link rel="stylesheet" href="./assets/css/style.css?v=8">
     <!--- Liquid Glass theme, layered on top of style.css -->
-    <link rel="stylesheet" href="./assets/css/glass.css?v=6">
+    <link rel="stylesheet" href="./assets/css/glass.css?v=8">
     <!--- Apply the saved appearance before the page paints, so there is no flash -->
     <script>
         try { var m = localStorage.getItem('appearance'); if (m === 'light' || m === 'dark') document.documentElement.setAttribute('data-theme', m); } catch (e) {}
@@ -44,7 +44,7 @@
                 <div class="info-content">
                     <h1 class="name" title="Rashi Tyagi">Rashi Tyagi</h1>
 
-                    <p class="title">AI/ML Engineer</p>
+                    <p class="title">Machine Learning Engineer</p>
                 </div>
 
                 <button class="info_more-btn" data-sidebar-btn>
@@ -116,7 +116,7 @@
                         <div class="contact-info">
                             <p class="contact-title">Location</p>
 
-                            <address>United States (open to relocate)</address>
+                            <address>Washington, D.C. (open to relocate)</address>
                         </div>
 
                     </li>
@@ -203,11 +203,11 @@
 
                 <section class="about-text">
                     <p>
-                        CS grad student at University of Illinois at Urbana Champaign (May '26), focused on building intelligent, scalable systems with AI/ML and cloud. Currently learning, experimenting, and preparing to bring real-world impact. Open to full-time roles where technology meets purpose—AI/ML, data engineering, or cloud architecture.
+                        Machine Learning Engineer and University of Illinois Urbana-Champaign Computer Science graduate (MCS, AI concentration, '26), focused on building intelligent, scalable systems with AI/ML and cloud. I currently validate and ship audio ML models for wildlife conservation at a STEM non-profit. Open to full-time roles where technology meets purpose: AI/ML, data engineering, or cloud architecture.
                     </p>
 
                     <p>
-                        📍 Let's connect if you’re hiring, mentoring, or heading to GHC25/SWE25!
+                        📍 Heading to AWS re:Invent in Las Vegas. Let's connect if you're hiring, mentoring, or going too!
 
                     </p>
                 </section>
@@ -480,70 +480,6 @@
                             <ion-icon name="book-outline"></ion-icon>
                         </div>
 
-                        <h3 class="h3">Education</h3>
-                    </div>
-
-                    <ol class="timeline-list">
-
-                        <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">University of Illinois- Urbana Champaign</h4>
-
-                            <p class="timeline-text">
-                                Masters in Computer Science (Artificial Intelligence Concentration)
-                            </p>
-                    
-                            <span>Relevant Courses:</span>
-                            <p class="timeline-text"> Deep Learning for Computer Vision, Artificial Intelligence, Text Information Systems, Topics in Large Language
-Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intelligence
-                            </p>
-                            <!--<span>2024 — 2025</span> -->
-
-
-                        </li>
-
-                        <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">Purdue University in Indianapolis</h4>
-
-                            <p class="timeline-text">
-                                Bachelor of Science in Computer Science with Honors
-                            </p>
-                            <p class="timeline-text">
-                                Minor in mathematics
-                            </p>
-                            <span>Relevant Courses:</span>
-                            <p class="timeline-text"> Data Science, Cloud Computing, Data Mining, Data Structures, Operating Systems
-                            </p>
-                            <!-- <span>2020 — 2023</span> -->
-
-
-                        </li>
-
-                        <!-- <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">Birla Balika Vidyapeeth, Pilani</h4>
-                            <p class="timeline-text">
-                                High School
-                            </p>
-                            <span>Relevant Courses:</span>
-                            <p class="timeline-text"> Physics, Chemistry, Mathematics, and Computer Science (C++)
-                            </p>
-                            <span>2017 — 2019</span>
-
-                        </li> -->
-
-                    </ol>
-
-                </section>
-
-                <section class="timeline">
-
-                    <div class="title-wrapper">
-                        <div class="icon-box">
-                            <ion-icon name="book-outline"></ion-icon>
-                        </div>
-
                         <h3 class="h3">Experience</h3>
                     </div>
 
@@ -551,22 +487,67 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
 
                         <li class="timeline-item">
 
-                            <h4 class="h4 timeline-item-title">Machine Learning Intern | STEM non-profit</h4>
+                            <h4 class="h4 timeline-item-title">Machine Learning Engineer | STEM non-profit (Team Jacamar)</h4>
 
-                            <span>June 2026 — Present</span>
+                            <span>Aug 2026 — Present</span>
 
                             <p class="timeline-text">
-                                • Developing experimental ML pipelines for non-linguistic acoustic affective modeling; working with spectrogram analysis, embedding evaluation, and transfer learning across human and wildlife vocalization datasets to support AI-driven conservation monitoring in real rainforest environments.
-                            </p>
-                            <!-- <p class="timeline-text">
-                                • Implemented and evaluated models (ARIMA, XGBoost, LSTM) to improve forecast accuracy on internal inventory datasets, leading to a reduction in MAE by ~2% in test simulations.
+                                • Validated a compressed BirdNET model (70% smaller, 493 species) against the original on 709 field recordings: 100% top-species match, confidence within 0.03.
                             </p>
                             <p class="timeline-text">
-                                • Documented key learnings and presented insights to the operations team, including a practical summary of which models performed better.
-                            </p> -->
+                                • Integrated and tested the model in a Digital Twin pipeline on a 6.9 h recording (1,777 events), passing 5 of 5 integration checks.
+                            </p>
+                            <p class="timeline-text">
+                                • Found 5 production risks, including a silent file-skip failure and a 0 to 134 shift in human-presence detections, and documented each with evidence for the team lead.
+                            </p>
+                            <p class="timeline-text">
+                                • Built a reproducible validation framework (pass criteria with sources, hashed test data, one-command run) that another engineer can rerun.
+                            </p>
 
                         </li>
-                        
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title">Machine Learning Engineer | STEM non-profit (Team GhostBat)</h4>
+
+                            <span>Jun 2026 — Present</span>
+
+                            <p class="timeline-text">
+                                • Developing a weak-supervision pipeline using a Random Forest model to pseudo-label 32,130 audio clips for deep learning training.
+                            </p>
+                            <p class="timeline-text">
+                                • Extracting 88 eGeMAPS audio features via OpenSMILE with Z-score standardization across two datasets to reduce bias.
+                            </p>
+                            <p class="timeline-text">
+                                • Applying transfer learning by freezing foundational layers and fine-tuning the classification head to adapt a distress detector to wildlife audio.
+                            </p>
+
+                        </li>
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title">Contributor | NASA International Space Apps Challenge</h4>
+
+                            <span>Nov 2026</span>
+
+                            <p class="timeline-text">
+                                • Built <a class="timeline-link" href="https://ratyagi.github.io/vantage-mars/">Vantage</a>, a Mars EVA visibility planner that predicts what an astronaut can and cannot see along a route, using USGS 1 m terrain data for Gale crater.
+                            </p>
+
+                        </li>
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title">ML Summer School | Cohere Labs</h4>
+
+                            <span>Jul 2026 — Aug 2026</span>
+
+                            <p class="timeline-text">
+                                • Participated in Cohere Labs Open Science Community's ML Summer School, covering ML mathematics, modern language modeling, agentic AI, edge AI, computer vision, world models and ML evaluation.
+                            </p>
+
+                        </li>
+
                         <li class="timeline-item">
 
                             <h4 class="h4 timeline-item-title">Data Science Intern | OFR Telecom Private Limited</h4>
@@ -757,7 +738,7 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                         <li class="skills-item">
                             <p class="skills-item-text"> Machine Learning Tools</p>
                             <div class="skill-content">
-                                <p class="title" >Scikit-learn</p> <p class="title" >TensorFlow</p> <p class="title" >PyTorch</p> <p class="title" >Keras</p> <p class="title" >XGBoost</p> <p class="title" >Hugging Face</p> <p class="title" >SpaCy</p>
+                                <p class="title" >Scikit-learn</p> <p class="title" >TensorFlow</p> <p class="title" >PyTorch</p> <p class="title" >Keras</p> <p class="title" >XGBoost</p> <p class="title" >Hugging Face</p> <p class="title" >SpaCy</p> <p class="title" >ONNX</p> <p class="title" >BirdNET</p> <p class="title" >OpenSMILE</p>
                             </div>
                         </li>
                         <li class="skills-item">
@@ -776,7 +757,7 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                         <li class="skills-item">
                             <p class="skills-item-text"> Other</p>
                             <div class="skill-content">
-                                <p class="title" >Git</p> <p class="title" >Unix Command Line</p> <p class="title" >Jupyter Notebooks</p> <p class="title" >LATEX</p>
+                                <p class="title" >Git</p> <p class="title" >FastAPI</p> <p class="title" >Unix Command Line</p> <p class="title" >Jupyter Notebooks</p> <p class="title" >LATEX</p>
                             </div>
 
                         </li>
@@ -784,6 +765,71 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
                     </ul>
 
                 </section>
+
+                <section class="timeline">
+
+                    <div class="title-wrapper">
+                        <div class="icon-box">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </div>
+
+                        <h3 class="h3">Education</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title">University of Illinois- Urbana Champaign</h4>
+
+                            <p class="timeline-text">
+                                Masters in Computer Science (Artificial Intelligence Concentration)
+                            </p>
+                    
+                            <span>Relevant Courses:</span>
+                            <p class="timeline-text"> Deep Learning for Computer Vision, Artificial Intelligence, Text Information Systems, Topics in Large Language
+Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intelligence
+                            </p>
+                            <!--<span>2024 — 2025</span> -->
+
+
+                        </li>
+
+                        <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title">Purdue University in Indianapolis</h4>
+
+                            <p class="timeline-text">
+                                Bachelor of Science in Computer Science with Honors
+                            </p>
+                            <p class="timeline-text">
+                                Minor in mathematics
+                            </p>
+                            <span>Relevant Courses:</span>
+                            <p class="timeline-text"> Data Science, Cloud Computing, Data Mining, Data Structures, Operating Systems
+                            </p>
+                            <!-- <span>2020 — 2023</span> -->
+
+
+                        </li>
+
+                        <!-- <li class="timeline-item">
+
+                            <h4 class="h4 timeline-item-title">Birla Balika Vidyapeeth, Pilani</h4>
+                            <p class="timeline-text">
+                                High School
+                            </p>
+                            <span>Relevant Courses:</span>
+                            <p class="timeline-text"> Physics, Chemistry, Mathematics, and Computer Science (C++)
+                            </p>
+                            <span>2017 — 2019</span>
+
+                        </li> -->
+
+                    </ol>
+
+                </section>
+
 
             </article>
 
@@ -1240,8 +1286,8 @@ Model (LLM) Agents, Cloud Computing Applications, Ethics in Artificial Intellige
     </main>
 
     <!--- custom js link    -->
-    <script src="./assets/js/script.js?v=6"></script>
-    <script src="./assets/js/glass.js?v=6"></script>
+    <script src="./assets/js/script.js?v=8"></script>
+    <script src="./assets/js/glass.js?v=8"></script>
 
     <!--- ionicon link -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
