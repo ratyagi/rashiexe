@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5e5ce6"/><stop offset="1" stop-color="#30d158"/></linearGradient>
+  <radialGradient id="s" cx=".25" cy=".15" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="480" fill="#0b0c14"/><rect width="640" height="480" fill="url(#g)" opacity=".85"/><rect width="640" height="480" fill="url(#s)"/>
+  <g transform="translate(-20 60)"><g fill="none" stroke="#fff" stroke-width="3" opacity=".9" stroke-linecap="round" stroke-linejoin="round"><rect x="250" y="60" width="70" height="70" rx="12"/><rect x="330" y="60" width="70" height="70" rx="12"/><rect x="410" y="60" width="70" height="70" rx="12"/><path d="M270 95h30M350 85h30M350 105h30M430 95l10 10 20-22"/></g></g>
+  <text x="48" y="380" font-family="-apple-system, Segoe UI, Inter, Arial, sans-serif" font-size="36" font-weight="700" fill="#fff">Context, Memory &amp; Harness</text>
+  <text x="48" y="420" font-family="-apple-system, Segoe UI, Inter, Arial, sans-serif" font-size="22" fill="#fff" opacity=".85">Three disciplines reshaping AI engineering</text>
+</svg>

@@ -580,3 +580,25 @@ main { margin-bottom: 120px; }
 }
 .see-more-btn:hover { transform: translateY(-1px); background: linear-gradient(135deg, var(--glass-shine), transparent 50%), var(--glass-fill); }
 .see-more-btn ion-icon { font-size: 16px; }
+
+/* Blog: the same card as a project. Three per row on desktop, two on tablets, one on phones. */
+.engagement-posts-list { display: grid; grid-template-columns: 1fr; gap: 30px; align-items: stretch; }
+@media (min-width: 768px) { .engagement-posts-list { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .engagement-posts-list { grid-template-columns: repeat(3, 1fr); } }
+.engagement-post-item > a {
+  display: flex; flex-direction: column; height: 100%;
+  padding: 0; border-radius: 0; background: none; box-shadow: none; transform: none;
+}
+.engagement-post-item > a::before, .engagement-post-item > a::after { display: none; }
+.engagement-post-item > a:hover { transform: none; }
+.engagement-post-item .project-img img { transition: transform 0.7s var(--ease-liquid); }
+.engagement-post-item > a:hover .project-img img { transform: scale(1.05); }
+.engagement-post-item .project-category time { display: inline; }
+.post-cta {
+  display: inline-flex; align-items: center; gap: 6px; margin: auto 4px 4px;
+  font-size: 13px; font-weight: 500; color: var(--accent-2);
+  transition: gap 0.4s var(--spring);
+}
+.engagement-post-item > a:hover .post-cta { gap: 10px; }
+.engagement-post-item .project-category span, .engagement-post-item .project-category time { display: inline; }
+.engagement-post-item .project-title { text-transform: none; }
