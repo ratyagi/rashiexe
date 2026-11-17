@@ -486,3 +486,62 @@ article { padding: 22px; }
 /* Featured heading gets the same space as the other headings, and the phone strip lines up with the content. */
 .clients-title { margin-bottom: 20px; }
 @media (max-width: 767px) { .clients-list { padding: 4px 15px 20px; scroll-padding-inline: 15px; } }
+
+
+/* ---------- 9. No overlaps, nothing clipped ----------
+ * The original layout used negative margins and sideways-scrolling strips,
+ * and let testimonial avatars hang over the top of their cards. Under glass
+ * those read as overlaps and hard cut-off edges, so they become plain grids.
+ */
+
+/* Testimonials: a grid of complete cards. The avatar sits inside the card. */
+.testimonials-list {
+  display: grid; grid-template-columns: 1fr; gap: 16px;
+  margin: 0; padding: 0; overflow: visible; scroll-snap-type: none;
+}
+@media (min-width: 768px) { .testimonials-list { grid-template-columns: repeat(2, 1fr); } }
+.testimonials-item { min-width: 0 !important; display: block; }
+.testimonials-item .content-card {
+  display: grid; grid-template-columns: 56px 1fr; column-gap: 14px; row-gap: 12px; align-items: center;
+  height: 100%; padding: 20px;
+}
+.testimonials-avatar-box {
+  position: static; transform: none; grid-row: 1; grid-column: 1;
+  width: 56px; height: 56px; display: grid; place-items: center; overflow: hidden;
+}
+.testimonials-avatar-box img { width: 48px; height: 48px; }
+.testimonials-item-title { grid-row: 1; grid-column: 2; margin: 0; line-height: 1.3; }
+.testimonials-text { grid-row: 2; grid-column: 1 / -1; }
+
+/* Featured: a grid inside the panel at every width. */
+.clients-list {
+  display: grid !important; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  margin: 0 !important; padding: 0 0 4px !important; overflow: visible !important;
+}
+@media (min-width: 768px) { .clients-list { grid-template-columns: repeat(5, 1fr); gap: 14px; } }
+.clients-item { width: auto !important; min-width: 0 !important; padding: 6px; border-radius: 16px; }
+.clients-item img { border-radius: 11px; }
+
+/* Tab bar: clearly its own layer, never blending into what scrolls under it. */
+.navbar, .has-lens .navbar {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 50%), rgba(18, 18, 26, 0.82);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  backdrop-filter: blur(30px) saturate(180%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1), 0 14px 40px rgba(0, 0, 0, 0.55);
+}
+:root[data-theme="light"] .navbar {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), transparent 50%), rgba(250, 250, 253, 0.86);
+  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(0, 0, 0, 0.06), 0 14px 40px rgba(40, 50, 90, 0.22);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .navbar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), transparent 50%), rgba(250, 250, 253, 0.86);
+    box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(0, 0, 0, 0.06), 0 14px 40px rgba(40, 50, 90, 0.22);
+  }
+}
+.nav-drop { background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); }
+/* Leave room so the last content on every page scrolls clear of the bar. */
+main { margin-bottom: 120px; }
+
+/* Wide screens: centre the tab bar under the content panel, not the window. */
+@media (min-width: 1250px) { .navbar { left: calc(50% + min(150px, (100vw - 1200px) / 2 + 150px)); } }

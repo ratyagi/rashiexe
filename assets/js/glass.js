@@ -170,7 +170,8 @@
     if (modal && modal.parentElement !== document.body) document.body.appendChild(modal);
   }
 
-  function start() { freeModal(); initNav(); initLens(); }
+  // The lens (initLens) bent the text under the tab bar and made it hard to read, so it is off.
+  function start() { freeModal(); initNav(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();
