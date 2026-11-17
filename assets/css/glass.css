@@ -609,13 +609,13 @@ main { margin-bottom: 120px; }
   position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background-size: cover; background-position: center;
 }
-.scene-stars { background-image: url("../images/backgrounds/stars.webp"); background-color: #07142a; }
-.scene-beach { display: none; background-image: url("../images/backgrounds/beach.webp"); background-color: #cfb48a; }
+.scene-stars { background-image: url("../images/backgrounds/waves-dark.webp"); background-color: #0b0d12; }
+.scene-beach { display: none; background-image: url("../images/backgrounds/waves-light.webp"); background-color: #7fbbe9; }
 
 /* Dark: the photo is the sky, so the colour glows step aside. */
 .liquid-bg { display: none; }
 
-/* Light: the beach replaces the colour blobs; glass gets a touch whiter so text stays crisp over the sea. */
+/* Light: the blue waves replace the colour blobs; glass gets a touch whiter so text stays crisp over the blue. */
 :root[data-theme="light"] .scene-beach { display: block; }
 :root[data-theme="light"] .scene-stars, :root[data-theme="light"] .liquid-bg { display: none; }
 :root[data-theme="light"] { --glass-fill: rgba(255, 255, 255, 0.58); --glass-fill-inner: rgba(255, 255, 255, 0.5); }
@@ -625,3 +625,14 @@ main { margin-bottom: 120px; }
   :root:not([data-theme="dark"]) { --glass-fill: rgba(255, 255, 255, 0.58); --glass-fill-inner: rgba(255, 255, 255, 0.5); }
 }
 @media (prefers-reduced-transparency: reduce) { .scene-beach { display: none !important; } }
+
+/* ---------- 11. Scrollbar: a slim rounded pill on a dark track ---------- */
+html { scrollbar-width: thin; scrollbar-color: #3a3a3c #141414; }
+html::-webkit-scrollbar, body::-webkit-scrollbar { width: 14px; }
+html::-webkit-scrollbar-track, body::-webkit-scrollbar-track { background: #141414; }
+html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+  background: #3a3a3c; border-radius: 999px;
+  border: 3px solid #141414; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+html::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover { background: #4a4a4d; }
+html::-webkit-scrollbar-button, body::-webkit-scrollbar-button { display: none; height: 0; }
